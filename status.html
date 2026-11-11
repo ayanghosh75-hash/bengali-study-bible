@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বাংলা স্টাডি বাইবেল — সিস্টেম স্থিতি | Bengali Study Bible Status</title>
+  <meta name="description" content="Official operational status and truthful system disclosure for the Bengali Study Bible.">
+  <style>
+    :root {
+      --bg: #0b1320;
+      --card-bg: #142033;
+      --border: #223552;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --green: #10b981;
+      --gold: #f59e0b;
+      --red: #ef4444;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px 16px;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 28px; }
+    h1 { font-size: 1.7rem; margin-bottom: 6px; }
+    .subtitle { color: var(--text-muted); font-size: 0.92rem; }
+
+    .overall-banner {
+      background: #1e293b;
+      border: 1px solid var(--gold);
+      color: #fef3c7;
+      padding: 16px 20px;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .service-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .service-row:last-child { border-bottom: none; }
+    .service-name { font-weight: 600; font-size: 0.93rem; }
+    .service-desc { font-size: 0.8rem; color: var(--text-muted); }
+
+    .status-tag {
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: monospace;
+    }
+    .tag-operational { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid var(--green); }
+    .tag-beta { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid var(--gold); }
+    .tag-stale { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid var(--red); }
+
+    .incident-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 36px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>বাংলা স্টাডি বাইবেল — সিস্টেম স্থিতি (Truthful System Status)</h1>
+      <p class="subtitle">Bengali Study Bible Operational Status & Freshness Verification</p>
+    </header>
+
+    <div class="overall-banner" id="overallBanner">
+      <div id="overallBannerText">Core Bible Reader: PUBLIC BETA • Deep 24×7 Cloud Monitoring: NOT YET ACTIVE</div>
+      <span class="status-tag tag-beta" id="snapshotFreshnessBadge">Checking Snapshot Age...</span>
+    </div>
+
+    <!-- PHASE 0 TRUTHFUL STATUS MATRIX -->
+    <div class="card">
+      <div class="card-title">
+        <span>সত্যনিষ্ঠ প্ল্যাটফর্ম স্থিতি (Phase 0 Truthful Status Matrix)</span>
+        <span style="font-size: 0.78rem; font-weight: normal; color: var(--text-muted);" id="utcClock">UTC Time: --</span>
+      </div>
+
+      <div class="service-row">
+        <div>
+          <div class="service-name">Core Bible Reader (মূল বাংলা স্টাডি বাইবেল পাঠক)</div>
+          <div class="service-desc">৬৬ পুস্তক, ১,১৮৯ অধ্যায়, ৩১,০৮৮ পদ — https://bengalistudybible.surge.sh/</div>
+        </div>
+        <span class="status-tag tag-operational">PUBLIC BETA</span>
+      </div>
+
+      <div class="service-row">
+        <div>
+          <div class="service-name">Deep 24×7 Monitoring (স্বাধীন ক্লাউড পর্যবেক্ষণ)</div>
+          <div class="service-desc">ক্রন শিডিউলার মালিকের ক্লাউড অ্যাকাউন্ট অনুমোদনের অপেক্ষায়; স্ট্যাটিক JSON স্ন্যাপশট ১৫ মিনিটের পুরনো হলে STALE প্রদর্শিত হয়</div>
+        </div>
+        <span class="status-tag tag-beta" id="monitoringRowTag">NOT YET ACTIVE</span>
+      </div>
+
+      <div class="service-row">
+        <div>
+          <div class="service-name">Admin Command Centre (/admin/deep-control-centre)</div>
+          <div class="service-desc">ক্লায়েন্ট বান্ডেল থেকে সকল পাসওয়ার্ড/পিন হ্যাশ অপসারিত; পঠনযোগ্য ডায়াগনস্টিক মোড</div>
+        </div>
+        <span class="status-tag tag-beta">RESTRICTED UNTIL SERVER-SIDE AUTH IS ACTIVE</span>
+      </div>
+
+      <div class="service-row">
+        <div>
+          <div class="service-name">Emergency Recovery Console (/recovery/)</div>
+          <div class="service-desc">পঠনযোগ্য রোগনির্ণয় ও ১৫-ধাপের রানবুক নির্দেশিকা (কোনো ক্লায়েন্ট-সাইড মিউটেশন নেই)</div>
+        </div>
+        <span class="status-tag tag-beta">DIAGNOSTIC GUIDE ONLY</span>
+      </div>
+
+      <div class="service-row">
+        <div>
+          <div class="service-name">Offline Bible (অফলাইন বাইবেল সংরক্ষণ)</div>
+          <div class="service-desc">প্রাথমিকভাবে ৫টি পুস্তক প্রি-ক্যাশড; অবশিষ্ট পুস্তক অন-ডিমান্ড অথবা /install পেজ থেকে সম্পূর্ণ ৬৬ পুস্তক ডাউনলোডযোগ্য</div>
+        </div>
+        <span class="status-tag tag-operational">5 BOOKS PRE-CACHED; OTHER BOOKS ON-DEMAND</span>
+      </div>
+
+      <div class="service-row">
+        <div>
+          <div class="service-name">Backup Status (ব্যাকআপ ও পুনরুদ্ধার)</div>
+          <div class="service-desc">লোকাল স্ন্যাপশট ও ক্লিন-রিস্টোর যাচাইকৃত; অফ-সাইট ক্লাউড অবজেক্ট বাকেট সংযোগ মালিকের অনুমোদনের অপেক্ষায়</div>
+        </div>
+        <span class="status-tag tag-beta">LOCAL ONLY UNTIL OFF-SITE BACKUP IS VERIFIED</span>
+      </div>
+    </div>
+
+    <!-- SNAPSHOT FRESHNESS VERIFICATION -->
+    <div class="card">
+      <div class="card-title">
+        <span>স্বাস্থ্য স্ন্যাপশট সতেজতা পরীক্ষা (Snapshot Timestamp Freshness Check)</span>
+        <span style="font-size: 0.78rem; font-weight: normal; color: var(--text-muted);">সর্বোচ্চ বৈধ বয়স: ১৫ মিনিট</span>
+      </div>
+      <div class="incident-box" id="freshnessDetails">
+        /api/health.json এবং /api/deep-heartbeat.json এর টাইমস্ট্যাম্প যাচাই করা হচ্ছে...
+      </div>
+    </div>
+
+    <footer>
+      <p>বাংলা স্টাডি বাইবেল • রেভাঃ অয়ন কুমার ঘোষ (Rev. Ayan Kumar Ghosh) কর্তৃক তত্ত্বাবধানকৃত</p>
+      <p style="margin-top: 6px;">
+        <a href="/" style="color: var(--text-muted); text-decoration: underline; margin-right: 12px;">বাইবেল পাঠে যান</a>
+        <a href="/install" style="color: var(--text-muted); text-decoration: underline; margin-right: 12px;">অ্যাপ ও অফলাইন ৬৬-বই ইনস্টল</a>
+        <a href="/recovery/" style="color: var(--text-muted); text-decoration: underline;">রোগনির্ণয় ও রানবুক নির্দেশিকা</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const MAX_SNAPSHOT_AGE_MS = 15 * 60 * 1000; // 15 minutes
+
+    async function verifySnapshotFreshness() {
+      const now = Date.now();
+      document.getElementById('utcClock').textContent = 'UTC: ' + new Date(now).toISOString();
+      const badge = document.getElementById('snapshotFreshnessBadge');
+      const details = document.getElementById('freshnessDetails');
+
+      try {
+        const res = await fetch('/api/health.json', { cache: 'no-store' });
+        if (!res.ok) {
+          badge.textContent = 'UNKNOWN / HTTP ' + res.status;
+          badge.className = 'status-tag tag-stale';
+          details.textContent = 'স্বাস্থ্য স্ন্যাপশট (/api/health.json) লোড করা যায়নি।';
+          return;
+        }
+        const data = await res.json();
+        const ts = data.timestamp ? Date.parse(data.timestamp) : NaN;
+        const ageMs = now - ts;
+        const ageMin = Math.round(ageMs / 60000);
+
+        if (isNaN(ts) || ageMs > MAX_SNAPSHOT_AGE_MS) {
+          badge.textContent = 'UNKNOWN / STALE SNAPSHOT (' + (isNaN(ts) ? 'Invalid TS' : ageMin + 'm old') + ')';
+          badge.className = 'status-tag tag-stale';
+          details.innerHTML =
+            '<strong>স্ন্যাপশট স্ট্যাটাস: UNKNOWN / STALE SNAPSHOT</strong><br/>' +
+            'সর্বশেষ বিল্ড স্ন্যাপশট টাইমস্ট্যাম্প: <code>' + (data.timestamp || 'N/A') + '</code> (' + ageMin + ' মিনিট পূর্বে)। ' +
+            'যেহেতু স্ন্যাপশটটি ১৫ মিনিটের বেশি পুরনো এবং সার্বক্ষণিক ক্লাউড ক্রন এখনও সক্রিয় হয়নি, তাই পুরনো টাইমস্ট্যাম্পের ভিত্তিতে কখনোই HEALTHY প্রদর্শন করা হয় না।';
+        } else {
+          badge.textContent = 'STATIC SNAPSHOT <15m (' + ageMin + 'm old)';
+          badge.className = 'status-tag tag-beta';
+          details.innerHTML =
+            '<strong>স্ন্যাপশট স্ট্যাটাস: STATIC SNAPSHOT (' + ageMin + ' মিনিট পূর্বে নির্মিত)</strong><br/>' +
+            'টাইমস্ট্যাম্প: <code>' + data.timestamp + '</code>। এটি সর্বশেষ ডেপ্লয়মেন্ট স্ন্যাপশট; সার্বক্ষণিক ২৪×৭ ক্লাউড ক্রন এখনও সক্রিয় নয় (Deep 24×7 Monitoring: NOT YET ACTIVE)।';
+        }
+      } catch (e) {
+        badge.textContent = 'UNKNOWN / OFFLINE';
+        badge.className = 'status-tag tag-stale';
+        details.textContent = 'নেটওয়ার্ক সংযোগ বিচ্ছিন্ন অথবা স্ন্যাপশট যাচাই করা যায়নি।';
+      }
+    }
+
+    verifySnapshotFreshness();
+  </script>
+</body>
+</html>

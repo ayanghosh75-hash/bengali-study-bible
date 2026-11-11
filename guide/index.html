@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>বাংলা স্টাডি বাইবেল — ব্যবহার ও ইনস্টলেশন নির্দেশিকা</title>
+  <meta name="description" content="বাংলা স্টাডি বাইবেল ব্যবহারের বিস্তারিত সুবিধা এবং বিভিন্ন ডিভাইসে ইনস্টল করার সহজ সচিত্র নির্দেশিকা। সম্পূর্ণ বিনামূল্যে ডাউনলোড করুন।">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #0b1324;
+      color: #f8fafc;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 850px;
+      width: 100%;
+      background: #152238;
+      border: 1px solid #2d3f5d;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .header h1 {
+      font-size: 26px;
+      color: #fbbf24;
+      margin-bottom: 8px;
+    }
+    .header p {
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin: 12px auto;
+    }
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.6);
+    }
+    .preview-box {
+      border: 1px solid #334155;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 24px;
+      background: #ffffff;
+      height: 700px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #60a5fa;
+      text-decoration: none;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📖 বাংলা স্টাডি বাইবেল — পূর্ণাঙ্গ ব্যবহার নির্দেশিকা</h1>
+      <p>সকল ডিভাইসে ইনস্টল করার সহজ সচিত্র গাইড, অফলাইন সুবিধা ও ধর্মতাত্ত্বিক বৈশিষ্ট্যাবলী।<br>সম্পূর্ণ বিনামূল্যে আপনার ডিভাইসে সংরক্ষণ করুন।</p>
+      <a href="/guide/bengali-study-bible-guide.bin" id="downloadPdfBtn" download="Bengali-Study-Bible-User-Guide.pdf" class="btn-download" onclick="downloadPdfFile(event)">
+        📥 সরাসরি কালারফুল PDF ডাউনলোড করুন (Download PDF — 1.7 MB)
+      </a>
+      <br>
+      <a href="/" class="back-link">← প্রধান স্টাডি বাইবেল পোর্টালে ফিরে যান</a>
+    </div>
+
+    <div class="preview-box">
+      <iframe src="/temp-user-guide.html" title="User Guide Preview"></iframe>
+    </div>
+  </div>
+  <script>
+    async function downloadPdfFile(e) {
+      e.preventDefault();
+      const btn = document.getElementById('downloadPdfBtn');
+      const origText = btn.innerHTML;
+      try {
+        btn.innerHTML = '⏳ ডাউনলোড প্রস্তুত হচ্ছে... (Preparing PDF...)';
+        const res = await fetch('/guide/bengali-study-bible-guide.bin');
+        if (!res.ok) throw new Error('Network error');
+        const buf = await res.arrayBuffer();
+        const blob = new Blob([buf], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Bengali-Study-Bible-User-Guide.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+        btn.innerHTML = '✅ ডাউনলোড সম্পন্ন হয়েছে! (Downloaded!)';
+        setTimeout(() => { btn.innerHTML = origText; }, 3000);
+      } catch (err) {
+        window.open('/temp-user-guide.html', '_blank');
+        btn.innerHTML = origText;
+      }
+    }
+  </script>
+</body>
+</html>

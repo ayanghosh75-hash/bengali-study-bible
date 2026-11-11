@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" width="600" height="680">
+  
+  <defs>
+    <!-- Deep Navy Background Gradient -->
+    <linearGradient id="bgNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F213A"/>
+      <stop offset="50%" stop-color="#0B192C"/>
+      <stop offset="100%" stop-color="#040913"/>
+    </linearGradient>
+
+    <!-- Warm Gold Gradient for Cross and Light -->
+    <linearGradient id="warmGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5D6"/>
+      <stop offset="35%" stop-color="#E8C360"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#997321"/>
+    </linearGradient>
+
+    <!-- Warm Gold Accent Linear -->
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#AA7C1D"/>
+      <stop offset="50%" stop-color="#F3E5AB"/>
+      <stop offset="100%" stop-color="#AA7C1D"/>
+    </linearGradient>
+
+    <!-- Page White / Parchment Gradients -->
+    <linearGradient id="leftPageGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ECE5D8"/>
+      <stop offset="20%" stop-color="#FAF7F0"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DFD7C8"/>
+    </linearGradient>
+
+    <linearGradient id="rightPageGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DFD7C8"/>
+      <stop offset="15%" stop-color="#FFFFFF"/>
+      <stop offset="80%" stop-color="#FAF7F0"/>
+      <stop offset="100%" stop-color="#ECE5D8"/>
+    </linearGradient>
+
+    <!-- Page Cover Underneath -->
+    <linearGradient id="bookCoverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#997321"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#6E5014"/>
+    </linearGradient>
+
+    <!-- Soft Golden Aura Glow -->
+    <filter id="divineGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="600" height="680" rx="32" fill="url(#bgNavyGrad)"/>
+  
+  <!-- Symbol scaled and placed in top portion -->
+  <g transform="translate(300, 220) scale(0.92) translate(-256, -240)">
+    
+  <g filter="url(#softShadow)">
+    <!-- Book Cover Base / Binding Accent Arc -->
+    <path d="M 94 366 C 160 388 232 376 256 364 C 280 376 352 388 418 366 C 424 374 416 384 410 386 C 348 406 278 394 256 382 C 234 394 164 406 102 386 C 96 384 88 374 94 366 Z" 
+          fill="url(#bookCoverGrad)" opacity="0.95"/>
+
+    <!-- Left Open Bible Page -->
+    <path d="M 244 204 C 182 178 116 182 82 202 C 78 204 76 208 76 214 L 76 348 C 76 354 80 358 86 356 C 122 342 186 338 244 358 Z" 
+          fill="url(#leftPageGrad)"/>
+    
+    <!-- Left Page Subtle Reading Ribbon/Fold Arc -->
+    <path d="M 96 220 C 138 206 196 208 240 226 L 240 354 C 188 338 132 340 96 352 Z" 
+          fill="#FFFFFF" opacity="0.4"/>
+
+    <!-- Right Open Bible Page -->
+    <path d="M 268 204 C 330 178 396 182 430 202 C 434 204 436 208 436 214 L 436 348 C 436 354 432 358 426 356 C 390 342 326 338 268 358 Z" 
+          fill="url(#rightPageGrad)"/>
+
+    <!-- Right Page Subtle Reading Ribbon/Fold Arc -->
+    <path d="M 416 220 C 374 206 316 208 272 226 L 272 354 C 324 338 380 340 416 352 Z" 
+          fill="#FFFFFF" opacity="0.5"/>
+
+    <!-- Central Vertical Spine Shadow / Golden Ridge -->
+    <path d="M 252 204 L 252 366 L 260 366 L 260 204 Z" fill="url(#warmGoldGrad)" opacity="0.8"/>
+
+    <!-- THE CHRISTIAN CROSS: Integrates organically at the book center -->
+    <g filter="url(#divineGlow)">
+      <!-- Vertical Beam (Extends through spine into divine light) -->
+      <rect x="245" y="96" width="22" height="136" rx="5" fill="url(#warmGoldGrad)"/>
+      
+      <!-- Horizontal Cross Beam (Spans above open pages) -->
+      <rect x="194" y="138" width="124" height="22" rx="5" fill="url(#warmGoldGrad)"/>
+
+      <!-- Radiant Illumination / Knowledge Star (✦) atop the Cross -->
+      <!-- Center Star Flare representing divine light, revelation and theological knowledge -->
+      <path d="M 256 52 
+               C 257 74 266 84 286 86 
+               C 266 88 257 98 256 120 
+               C 255 98 246 88 226 86 
+               C 246 84 255 74 256 52 Z" 
+            fill="url(#warmGoldGrad)"/>
+
+      <!-- Inner Diamond Flare Core -->
+      <circle cx="256" cy="86" r="4.5" fill="#FFFFFF"/>
+      <circle cx="256" cy="149" r="4" fill="#FFFFFF" opacity="0.9"/>
+
+      <!-- Subtle Diagonal Rays of Wisdom (light bursts) -->
+      <path d="M 256 70 L 256 102 M 240 86 L 272 86" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>
+    </g>
+  </g>
+
+  </g>
+
+  <!-- Bengali Wordmark -->
+  <text x="300" y="475" 
+        font-family="'Noto Serif Bengali', 'Vrinda', 'Nirmala UI', serif" 
+        font-size="44" 
+        font-weight="700" 
+        fill="url(#warmGoldGrad)" 
+        text-anchor="middle" 
+        letter-spacing="1.5">
+    বাংলা স্টাডি বাইবেল
+  </text>
+
+  <!-- Divider Line with Diamond -->
+  <g transform="translate(300, 508)">
+    <line x1="-140" y1="0" x2="-20" y2="0" stroke="url(#warmGoldGrad)" stroke-width="1.5" opacity="0.6"/>
+    <polygon points="0,-4 4,0 0,4 -4,0" fill="#E8C360"/>
+    <line x1="20" y1="0" x2="140" y2="0" stroke="url(#warmGoldGrad)" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="300" y="545" 
+        font-family="'Noto Sans Bengali', sans-serif" 
+        font-size="19" 
+        font-weight="500" 
+        fill="#F3E5AB" 
+        text-anchor="middle" 
+        letter-spacing="2.5"
+        opacity="0.95">
+    পড়ুন • বুঝুন • অধ্যয়ন করুন • প্রয়োগ করুন
+  </text>
+
+  <!-- Bilingual English Subtitle -->
+  <text x="300" y="585" 
+        font-family="'Cinzel', 'Trajan Pro', 'Georgia', serif" 
+        font-size="14" 
+        font-weight="600" 
+        fill="#FFFFFF" 
+        text-anchor="middle" 
+        letter-spacing="4"
+        opacity="0.75">
+    BENGALI STUDY BIBLE
+  </text>
+
+  <!-- Founder/Publisher Attribution Badge -->
+  <text x="300" y="625" 
+        font-family="'Noto Sans Bengali', sans-serif" 
+        font-size="12" 
+        fill="#94A3B8" 
+        text-anchor="middle" 
+        letter-spacing="1">
+    প্রতিষ্ঠাতা ও সম্পাদক: রেভা. অয়ন কুমার ঘোষ
+  </text>
+</svg>

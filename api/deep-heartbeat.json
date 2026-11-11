@@ -1,0 +1,26 @@
+{
+  "envelopeVersion": "v2.0-hmac-sha256-freshness-15m",
+  "messageId": "msg_deep_1790399169322",
+  "nonce": "hb_1790399169322_5a9db6c4",
+  "issuedAt": "2026-09-26T05:06:09.322Z",
+  "expiresAt": "2026-09-26T05:21:09.322Z",
+  "keyId": "key_rot_2026_q3_remediated_v2",
+  "senderRole": "LEVEL_4_DEEP_STEWARD",
+  "recipientRole": "LEVEL_3_EXTERNAL_MONITOR",
+  "payload": {
+    "timestamp": "2026-09-26T05:06:09.322Z",
+    "applicationVersion": "1.0.2-remediated-v7",
+    "overallHealthStatus": "STATIC_SNAPSHOT_BUILD_TIME",
+    "monitoring24x7Status": "NOT YET ACTIVE",
+    "databaseAvailability": "STATIC_JSON_66_BOOKS_READY",
+    "searchIndexStatus": "INDEXED_66_BOOKS",
+    "bibleIntegrityStatus": "VERIFIED_66_BOOKS_1189_CH_31088_V",
+    "askBibleStatus": "OPERATIONAL_5_PART",
+    "pastorToolsStatus": "ALL_11_BUILDERS_READY",
+    "backupStatus": "LOCAL ONLY UNTIL OFF-SITE BACKUP IS VERIFIED",
+    "activeIncidentCount": 0,
+    "safeAutopilotStatus": "READONLY_DIAGNOSTIC_UNTIL_SERVER_AUTH",
+    "actionsAwaitingOwnerApproval": 3
+  },
+  "signature": "hmac_sha256_8aa799e16bd4e7db1bd84f031a837a26a3f32adf69340826974f3095b020b73e"
+}

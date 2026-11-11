@@ -1,0 +1,9 @@
+{
+  "version": "1.0.1",
+  "buildTime": "2026-09-18T13:37:00.000Z",
+  "releaseName": "বাংলা স্টাডি বাইবেল — পূর্ণাঙ্গ প্রোডাকশন ও ইনস্টলড আপডেট ১.০.১",
+  "releaseNotesBn": "স্থায়ী পাবলিক এক্সেস, অটো-পাইলট সার্বক্ষণিক স্বাস্থ্য মনিটর এবং নির্ভরযোগ্য অফলাইন ক্যাশ সুরক্ষা।",
+  "releaseNotesEn": "Permanent public access, autopilot continuous health monitor, and resilient offline cache protection.",
+  "minCompatibleVersion": "1.0.0",
+  "cacheVersion": "bengali-study-bible-v6"
+}

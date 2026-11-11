@@ -1,0 +1,62 @@
+{
+  "id": "/?pwa=1",
+  "name": "বাংলা স্টাডি বাইবেল — Bengali Study Bible",
+  "short_name": "বাংলা বাইবেল",
+  "description": "বাংলায় বাইবেল পড়ুন, বুঝুন ও গভীরভাবে অধ্যয়ন করুন। Read, understand and apply God's Word in Bengali with authentic Scripture, study notes, and pastoral tools.",
+  "lang": "bn",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B192C",
+  "theme_color": "#0B192C",
+  "categories": ["books", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icons/bible-icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "পবিত্র বাইবেল পাঠ (Read Bible)",
+      "short_name": "বাইবেল পাঠ",
+      "description": "বাংলা স্টাডি বাইবেল খুলুন",
+      "url": "/bible/JHN/1",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "প্রতিদিনের বাক্য (Daily Word)",
+      "short_name": "দৈনিক বাক্য",
+      "description": "আজকের শাস্ত্রীয় প্রতিজ্ঞা ও উৎসাহ",
+      "url": "/daily-word",
+      "icons": [{ "src": "/icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>দীপ জরুরি রোগনির্ণয় ও রানবুক নির্দেশিকা — Deep Emergency Diagnostic & Runbook Guide</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <style>
+    :root {
+      --bg-primary: #0a0f18;
+      --bg-card: #131b2a;
+      --bg-input: #1c2638;
+      --border-color: #26354a;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --accent-gold: #d97706;
+      --accent-crimson: #ef4444;
+      --accent-emerald: #10b981;
+      --accent-blue: #3b82f6;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding: 16px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    header {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .brand h1 { font-size: 1.35rem; color: #f8fafc; font-weight: 700; margin-top: 6px; }
+    .brand p { font-size: 0.85rem; color: #cbd5e1; margin-top: 4px; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .badge-diagnostic { background: #78350f; color: #fde68a; border: 1px solid var(--accent-gold); }
+    .badge-mode { background: #064e3b; color: #a7f3d0; border: 1px solid var(--accent-emerald); }
+    .badge-restricted { background: #7f1d1d; color: #fecaca; border: 1px solid var(--accent-crimson); }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #f8fafc;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    button, .btn-link {
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    button:hover, .btn-link:hover { opacity: 0.9; }
+    .btn-primary { background: #b45309; color: white; }
+    .btn-secondary { background: #334155; color: #f8fafc; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.83rem;
+      gap: 10px;
+    }
+    .status-item:last-child { border-bottom: none; }
+    .status-pass { color: var(--accent-emerald); font-weight: 700; font-family: monospace; }
+    .status-warn { color: #fbbf24; font-weight: 700; font-family: monospace; }
+    .status-fail { color: var(--accent-crimson); font-weight: 700; font-family: monospace; }
+
+    .runbook-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 0.84rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .runbook-badge {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      background: #1e293b;
+      color: #fbbf24;
+      border: 1px solid #475569;
+      flex-shrink: 0;
+    }
+
+    .log-terminal {
+      background: #05080f;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 12px;
+      font-family: monospace;
+      font-size: 0.78rem;
+      color: #38bdf8;
+      max-height: 220px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="mainConsole">
+    <header>
+      <div class="brand">
+        <span class="badge badge-diagnostic">EMERGENCY RECOVERY CONSOLE: DIAGNOSTIC GUIDE ONLY</span>
+        <h1>দীপ জরুরি রোগনির্ণয় ও রানবুক নির্দেশিকা</h1>
+        <p>Deep Read-Only Emergency Diagnostic & Runbook Console • No Client-Side Secrets or Mutating Actions</p>
+      </div>
+      <div style="text-align: right;">
+        <div style="margin-bottom: 6px;">
+          কনসোল মোড: <span class="badge badge-diagnostic">DIAGNOSTIC GUIDE ONLY</span>
+        </div>
+        <div>
+          সার্ভার অথেন্টিকেশন: <span class="badge badge-restricted">NOT YET ACTIVE (STATIC HOST)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- PHASE 0 TRUTHFUL SYSTEM STATUS DISCLOSURE -->
+    <div class="card" style="border-left: 4px solid var(--accent-gold);">
+      <h2>📊 সত্যনিষ্ঠ সিস্টেম স্থিতি ঘোষণা (Truthful System Status Matrix — Phase 0)</h2>
+      <p style="font-size: 0.83rem; color: var(--text-secondary); margin-bottom: 12px;">
+        নিরাপত্তা কঠোরকরণ নীতি (Phase 2) অনুযায়ী ক্লায়েন্ট-সাইড জাভাস্ক্রিপ্ট বা এইচটিএমএল থেকে সকল পাসওয়ার্ড হ্যাশ, পিন হ্যাশ এবং ব্রেক-গ্লাস হ্যাশ স্থায়ীভাবে অপসারণ করা হয়েছে। সার্ভার-সাইড এজ অথেন্টিকেশন সক্রিয় না হওয়া পর্যন্ত এই পেজটি কেবল <strong>পঠনযোগ্য রোগনির্ণয় ও রানবুক নির্দেশিকা (DIAGNOSTIC GUIDE ONLY)</strong> হিসেবে কাজ করবে।
+      </p>
+      <div class="grid-2">
+        <div class="status-item">
+          <span>Core Bible Reader</span>
+          <span class="status-pass">PUBLIC BETA</span>
+        </div>
+        <div class="status-item">
+          <span>Deep 24×7 Monitoring</span>
+          <span class="status-warn">NOT YET ACTIVE</span>
+        </div>
+        <div class="status-item">
+          <span>Admin Command Centre</span>
+          <span class="status-warn">RESTRICTED UNTIL SERVER-SIDE AUTH IS ACTIVE</span>
+        </div>
+        <div class="status-item">
+          <span>Emergency Recovery Console</span>
+          <span class="status-warn">DIAGNOSTIC GUIDE ONLY</span>
+        </div>
+        <div class="status-item">
+          <span>Offline Bible</span>
+          <span class="status-pass">5 BOOKS PRE-CACHED; OTHER BOOKS ON-DEMAND</span>
+        </div>
+        <div class="status-item">
+          <span>Backup Status</span>
+          <span class="status-warn">LOCAL ONLY UNTIL OFF-SITE BACKUP IS VERIFIED</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE TELEMETRY & RUNBOOK -->
+    <div class="grid-2">
+      <!-- Live Read-Only Probes -->
+      <div class="card">
+        <h2>📡 পঠনযোগ্য লাইভ এন্ডপয়েন্ট নিরীক্ষা (Read-Only HTTP Probes)</h2>
+        <div id="liveProbesContainer">
+          <div class="status-item">
+            <span>পাবলিক রুট (/)</span>
+            <span id="probeRoot" class="status-warn">Checking...</span>
+          </div>
+          <div class="status-item">
+            <span>ইনস্টল রুট (/install)</span>
+            <span id="probeInstall" class="status-warn">Checking...</span>
+          </div>
+          <div class="status-item">
+            <span>ম্যানিফেস্ট (/manifest.webmanifest)</span>
+            <span id="probeManifest" class="status-warn">Checking...</span>
+          </div>
+          <div class="status-item">
+            <span>সার্ভিস ওয়ার্কার (/sw.js)</span>
+            <span id="probeSw" class="status-warn">Checking...</span>
+          </div>
+          <div class="status-item">
+            <span>শাস্ত্রীয় ডেটাসেট (/bible-data/irv/GEN.json)</span>
+            <span id="probeScripture" class="status-warn">Checking...</span>
+          </div>
+          <div class="status-item">
+            <span>স্বাস্থ্য স্ন্যাপশট সতেজতা (/api/health.json)</span>
+            <span id="probeHealthFreshness" class="status-warn">Checking...</span>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="runLiveProbes()">
+            🔄 লাইভ প্রোব পুনরায় পরীক্ষা করুন (Run Read-Only HTTP Probes)
+          </button>
+        </div>
+      </div>
+
+      <!-- 15-Step Admin Recovery Runbook -->
+      <div class="card">
+        <h2>📖 ১৫-ধাপের পুনরুদ্ধার রানবুক নির্দেশিকা (15-Step Recovery Guide)</h2>
+        <div style="max-height: 250px; overflow-y: auto; padding-right: 6px;">
+          <div class="runbook-step"><span class="runbook-badge">01</span> নিশ্চিত করুন পাবলিক স্টাডি বাইবেল (/) HTTP 200 প্রদান করছে কি না</div>
+          <div class="runbook-step"><span class="runbook-badge">02</span> DNS, HTTPS সার্টিফিকেট এবং এজ রাউটিং স্ট্যাটাস যাচাই করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">03</span> সর্বশেষ ডেপ্লয়মেন্ট বান্ডেল এবং SHA-256 চেকসাম মিলিয়ে দেখুন</div>
+          <div class="runbook-step"><span class="runbook-badge">04</span> ব্রাউজার কনসোল ও নেটওয়ার্ক ট্যাবে সম্ভাব্য ত্রুটি নিরীক্ষা করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">05</span> লোকাল স্টোরেজ ও ইনডেক্সডডিবি সংযোগ পরীক্ষা করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">06</span> সার্ভিস ওয়ার্কার ক্যাশ এবং অফলাইন ফলব্যাক পরীক্ষা করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">07</span> সার্ভার-সাইড অথবা সিএলআই অথেন্টিকেশন টোকেন যাচাই করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">08</span> যাচাইকৃত স্ন্যাপশট (.rollback-points) এর সাথে বর্তমান বিল্ড তুলনা করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">09</span> রোলব্যাকের পূর্বে বর্তমান অবস্থার একটি লোকাল ব্যাকআপ সংরক্ষণ করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">10</span> অনুমোদিত সিএলআই টার্মিনাল থেকে `npm run build && npm run deploy:prep` চালান</div>
+          <div class="runbook-step"><span class="runbook-badge">11</span> প্রয়োজনে সিএলআই থেকে `npx surge dist bengalistudybible.surge.sh` দ্বারা এলকেজি পুনরুদ্ধার করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">12</span> ৬৬টি পুস্তক, ১,১৮৯ অধ্যায় ও ৩১,০৮৮ পদের অখণ্ডতা স্ক্রিপ্ট চালান</div>
+          <div class="runbook-step"><span class="runbook-badge">13</span> ইউহোন্না (John) ৮৭৯ পদ এবং মথি ১:১৮-২৫ পদগুলি যাচাই করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">14</span> ক্লায়েন্ট বান্ডেলে কোনো পাসওয়ার্ড বা সিক্রেট হ্যাশ নেই তা নিশ্চিত করুন</div>
+          <div class="runbook-step"><span class="runbook-badge">15</span> পুনরুদ্ধার পরবর্তী স্বাস্থ্য ও পারফরম্যান্স রিপোর্ট নথিবদ্ধ করুন</div>
+        </div>
+        <div class="btn-group">
+          <button class="btn-secondary" style="width: 100%; justify-content: center;" onclick="generateDiagnosticReport()">
+            📋 ব্রাউজার ডায়াগনস্টিক রিপোর্ট তৈরি করুন (Generate Read-Only Report)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIAGNOSTIC OUTPUT & LINKS -->
+    <div class="card">
+      <h2>📜 পঠনযোগ্য ডায়াগনস্টিক লগ ও রেফারেন্স লিংক</h2>
+      <div id="diagnosticLog" class="log-terminal">[DIAGNOSTIC_GUIDE_ONLY] Static client-side credentials and mutating controls have been removed per Phase 2 security hardening. Use runLiveProbes() to inspect current HTTP endpoint health and snapshot freshness.</div>
+      <div class="btn-group">
+        <a href="/EMERGENCY_ACCESS_GUIDE.md" download class="btn-link btn-secondary">
+          📥 অফলাইন ইমার্জেন্সি গাইড ডাউনলোড (Download Guide)
+        </a>
+        <a href="/status/" class="btn-link btn-secondary">
+          🌐 সিস্টেম স্ট্যাটাস পেজ (/status/)
+        </a>
+        <a href="/" class="btn-link btn-primary" style="margin-left: auto;">
+          📖 মূল বাইবেল পাঠে ফিরে যান (Back to Bible Reader)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ========================================================================
+    // READ-ONLY EMERGENCY DIAGNOSTIC SCRIPT
+    // Zero passwords, zero PINs, zero hashes, zero mutating controls.
+    // ========================================================================
+    const FRESHNESS_THRESHOLD_MS = 15 * 60 * 1000; // 15 minutes
+
+    function appendLog(message) {
+      const el = document.getElementById('diagnosticLog');
+      if (!el) return;
+      el.textContent = `[${new Date().toISOString()}] ${message}\n` + el.textContent;
+    }
+
+    async function runLiveProbes() {
+      const endpoints = [
+        { id: 'probeRoot', url: '/' },
+        { id: 'probeInstall', url: '/install' },
+        { id: 'probeManifest', url: '/manifest.webmanifest' },
+        { id: 'probeSw', url: '/sw.js' },
+        { id: 'probeScripture', url: '/bible-data/irv/GEN.json' }
+      ];
+
+      for (const ep of endpoints) {
+        const el = document.getElementById(ep.id);
+        if (!el) continue;
+        try {
+          const start = Date.now();
+          const res = await fetch(ep.url, { cache: 'no-store' });
+          const lat = Date.now() - start;
+          if (res.ok) {
+            el.textContent = `HTTP 200 (${lat}ms)`;
+            el.className = 'status-pass';
+          } else {
+            el.textContent = `HTTP ${res.status}`;
+            el.className = 'status-fail';
+          }
+        } catch (err) {
+          el.textContent = 'UNREACHABLE';
+          el.className = 'status-fail';
+        }
+      }
+
+      // Check /api/health.json and enforce 15-minute timestamp freshness rule
+      const healthEl = document.getElementById('probeHealthFreshness');
+      if (healthEl) {
+        try {
+          const res = await fetch('/api/health.json', { cache: 'no-store' });
+          if (!res.ok) {
+            healthEl.textContent = `HTTP ${res.status}`;
+            healthEl.className = 'status-fail';
+          } else {
+            const data = await res.json();
+            const ts = data.timestamp ? Date.parse(data.timestamp) : NaN;
+            const ageMs = Date.now() - ts;
+            const ageMin = Math.round(ageMs / 60000);
+            if (isNaN(ts) || ageMs > FRESHNESS_THRESHOLD_MS) {
+              healthEl.textContent = `UNKNOWN / STALE SNAPSHOT (${isNaN(ts) ? 'invalid ts' : ageMin + 'm old'})`;
+              healthEl.className = 'status-warn';
+              appendLog(`Snapshot freshness check: /api/health.json is ${ageMin}m old (>15m threshold) -> UNKNOWN / STALE SNAPSHOT.`);
+            } else {
+              healthEl.textContent = `SNAPSHOT <15m (${ageMin}m old • Static Build Snapshot)`;
+              healthEl.className = 'status-pass';
+              appendLog(`Snapshot freshness check: /api/health.json timestamp is ${ageMin}m old.`);
+            }
+          }
+        } catch (e) {
+          healthEl.textContent = 'UNKNOWN / UNREACHABLE';
+          healthEl.className = 'status-fail';
+        }
+      }
+    }
+
+    function generateDiagnosticReport() {
+      const ua = navigator.userAgent;
+      const online = navigator.onLine;
+      const swSupported = 'serviceWorker' in navigator;
+      appendLog(`Read-Only Browser Diagnostic Report:\n  Online=${online}\n  ServiceWorkerSupported=${swSupported}\n  Origin=${location.origin}\n  Mode=DIAGNOSTIC_GUIDE_ONLY`);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      runLiveProbes();
+    });
+  </script>
+</body>
+</html>

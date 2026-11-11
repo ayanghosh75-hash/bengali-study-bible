@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <g transform="translate(0, 0)">
+    <!-- Book Cover Base -->
+    <path d="M 94 366 C 160 388 232 376 256 364 C 280 376 352 388 418 366 C 424 374 416 384 410 386 C 348 406 278 394 256 382 C 234 394 164 406 102 386 Z" fill="#000000"/>
+    <!-- Left Page -->
+    <path d="M 244 204 C 182 178 116 182 82 202 L 76 348 C 122 342 186 338 244 358 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8"/>
+    <!-- Right Page -->
+    <path d="M 268 204 C 330 178 396 182 430 202 L 436 348 C 390 342 326 338 268 358 Z" fill="#FFFFFF" stroke="#000000" stroke-width="8"/>
+    <!-- Cross -->
+    <rect x="245" y="96" width="22" height="136" rx="4" fill="#000000"/>
+    <rect x="194" y="138" width="124" height="22" rx="4" fill="#000000"/>
+    <!-- Star Flare -->
+    <path d="M 256 52 C 257 74 266 84 286 86 C 266 88 257 98 256 120 C 255 98 246 88 226 86 C 246 84 255 74 256 52 Z" fill="#000000"/>
+  </g>
+</svg>
