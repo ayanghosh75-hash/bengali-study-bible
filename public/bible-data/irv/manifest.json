@@ -1,0 +1,619 @@
+{
+  "translation": {
+    "id": "irv-ben",
+    "nameBn": "ভারতীয় সংশোধিত সংস্করণ (IRV বাংলা)",
+    "nameEn": "Indian Revised Version (IRV) Bengali",
+    "vernacularTitle": "ইন্ডিয়ান রিভাইজড ভার্সন (IRV) - বেঙ্গলী",
+    "publisher": "Bridge Connectivity Solutions Pvt. Ltd.",
+    "publisherUrl": "https://bridgeconn.com/",
+    "sourceUrl": "https://ebible.org/find/details.php?id=benirv",
+    "license": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attribution": "Indian Revised Version (IRV) Bengali, copyright © 2018, 2019 Bridge Connectivity Solutions Pvt. Ltd. Distributed under CC BY-SA 4.0.",
+    "dateImported": "2026-09-17T05:55:09.199Z",
+    "format": "USFM to JSON canonical pipeline"
+  },
+  "statistics": {
+    "canonicalBooks": 66,
+    "importedBooks": 66,
+    "canonicalChapters": 1189,
+    "importedChapters": 1189,
+    "importedVerses": 31088
+  },
+  "books": [
+    {
+      "id": "GEN",
+      "nameBn": "আদিপুস্তক",
+      "nameEn": "Genesis",
+      "expectedChapters": 50,
+      "actualChapters": 50,
+      "totalVerses": 1533,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "EXO",
+      "nameBn": "যাত্রাপুস্তক",
+      "nameEn": "Exodus",
+      "expectedChapters": 40,
+      "actualChapters": 40,
+      "totalVerses": 1213,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "LEV",
+      "nameBn": "লেবীয় পুস্তক",
+      "nameEn": "Leviticus",
+      "expectedChapters": 27,
+      "actualChapters": 27,
+      "totalVerses": 859,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "NUM",
+      "nameBn": "গণনা পুস্তক",
+      "nameEn": "Numbers",
+      "expectedChapters": 36,
+      "actualChapters": 36,
+      "totalVerses": 1288,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "DEU",
+      "nameBn": "দ্বিতীয় বিবরণ",
+      "nameEn": "Deuteronomy",
+      "expectedChapters": 34,
+      "actualChapters": 34,
+      "totalVerses": 959,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JOS",
+      "nameBn": "যিহোশূয়",
+      "nameEn": "Joshua",
+      "expectedChapters": 24,
+      "actualChapters": 24,
+      "totalVerses": 658,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JDG",
+      "nameBn": "বিচারকর্তৃগণ",
+      "nameEn": "Judges",
+      "expectedChapters": 21,
+      "actualChapters": 21,
+      "totalVerses": 618,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "RUT",
+      "nameBn": "রূথ",
+      "nameEn": "Ruth",
+      "expectedChapters": 4,
+      "actualChapters": 4,
+      "totalVerses": 85,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1SA",
+      "nameBn": "১ শমূয়েল",
+      "nameEn": "1 Samuel",
+      "expectedChapters": 31,
+      "actualChapters": 31,
+      "totalVerses": 810,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2SA",
+      "nameBn": "২ শমূয়েল",
+      "nameEn": "2 Samuel",
+      "expectedChapters": 24,
+      "actualChapters": 24,
+      "totalVerses": 695,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1KI",
+      "nameBn": "১ রাজাবলি",
+      "nameEn": "1 Kings",
+      "expectedChapters": 22,
+      "actualChapters": 22,
+      "totalVerses": 816,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2KI",
+      "nameBn": "২ রাজাবলি",
+      "nameEn": "2 Kings",
+      "expectedChapters": 25,
+      "actualChapters": 25,
+      "totalVerses": 719,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1CH",
+      "nameBn": "১ বংশাবলি",
+      "nameEn": "1 Chronicles",
+      "expectedChapters": 29,
+      "actualChapters": 29,
+      "totalVerses": 942,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2CH",
+      "nameBn": "২ বংশাবলি",
+      "nameEn": "2 Chronicles",
+      "expectedChapters": 36,
+      "actualChapters": 36,
+      "totalVerses": 822,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "EZR",
+      "nameBn": "ইষ্রা",
+      "nameEn": "Ezra",
+      "expectedChapters": 10,
+      "actualChapters": 10,
+      "totalVerses": 280,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "NEH",
+      "nameBn": "নহিমিয়",
+      "nameEn": "Nehemiah",
+      "expectedChapters": 13,
+      "actualChapters": 13,
+      "totalVerses": 406,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "EST",
+      "nameBn": "ইষ্টের",
+      "nameEn": "Esther",
+      "expectedChapters": 10,
+      "actualChapters": 10,
+      "totalVerses": 167,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JOB",
+      "nameBn": "ইয়োব",
+      "nameEn": "Job",
+      "expectedChapters": 42,
+      "actualChapters": 42,
+      "totalVerses": 1070,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "PSA",
+      "nameBn": "গীতসংহিতা",
+      "nameEn": "Psalms",
+      "expectedChapters": 150,
+      "actualChapters": 150,
+      "totalVerses": 2461,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "PRO",
+      "nameBn": "হিতোপদেশ",
+      "nameEn": "Proverbs",
+      "expectedChapters": 31,
+      "actualChapters": 31,
+      "totalVerses": 915,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "ECC",
+      "nameBn": "উপদেশক",
+      "nameEn": "Ecclesiastes",
+      "expectedChapters": 12,
+      "actualChapters": 12,
+      "totalVerses": 222,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "SNG",
+      "nameBn": "পরমগীত",
+      "nameEn": "Song of Solomon",
+      "expectedChapters": 8,
+      "actualChapters": 8,
+      "totalVerses": 117,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "ISA",
+      "nameBn": "যিশাইয়",
+      "nameEn": "Isaiah",
+      "expectedChapters": 66,
+      "actualChapters": 66,
+      "totalVerses": 1292,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JER",
+      "nameBn": "যিরমিয়",
+      "nameEn": "Jeremiah",
+      "expectedChapters": 52,
+      "actualChapters": 52,
+      "totalVerses": 1364,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "LAM",
+      "nameBn": "বিলাপ",
+      "nameEn": "Lamentations",
+      "expectedChapters": 5,
+      "actualChapters": 5,
+      "totalVerses": 154,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "EZK",
+      "nameBn": "যিহিষ্কেল",
+      "nameEn": "Ezekiel",
+      "expectedChapters": 48,
+      "actualChapters": 48,
+      "totalVerses": 1273,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "DAN",
+      "nameBn": "দানিয়েল",
+      "nameEn": "Daniel",
+      "expectedChapters": 12,
+      "actualChapters": 12,
+      "totalVerses": 357,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "HOS",
+      "nameBn": "হোশেয়",
+      "nameEn": "Hosea",
+      "expectedChapters": 14,
+      "actualChapters": 14,
+      "totalVerses": 197,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JOL",
+      "nameBn": "যোয়েল",
+      "nameEn": "Joel",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 73,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "AMO",
+      "nameBn": "আমোষ",
+      "nameEn": "Amos",
+      "expectedChapters": 9,
+      "actualChapters": 9,
+      "totalVerses": 146,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "OBA",
+      "nameBn": "ওবদিয়",
+      "nameEn": "Obadiah",
+      "expectedChapters": 1,
+      "actualChapters": 1,
+      "totalVerses": 21,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JON",
+      "nameBn": "যোনা",
+      "nameEn": "Jonah",
+      "expectedChapters": 4,
+      "actualChapters": 4,
+      "totalVerses": 48,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "MIC",
+      "nameBn": "মীখা",
+      "nameEn": "Micah",
+      "expectedChapters": 7,
+      "actualChapters": 7,
+      "totalVerses": 105,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "NAM",
+      "nameBn": "নহূম",
+      "nameEn": "Nahum",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 47,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "HAB",
+      "nameBn": "হবক্কূক",
+      "nameEn": "Habakkuk",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 56,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "ZEP",
+      "nameBn": "সফনিয়",
+      "nameEn": "Zephaniah",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 53,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "HAG",
+      "nameBn": "হগয়",
+      "nameEn": "Haggai",
+      "expectedChapters": 2,
+      "actualChapters": 2,
+      "totalVerses": 38,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "ZEC",
+      "nameBn": "সখরিয়",
+      "nameEn": "Zechariah",
+      "expectedChapters": 14,
+      "actualChapters": 14,
+      "totalVerses": 211,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "MAL",
+      "nameBn": "মালাখি",
+      "nameEn": "Malachi",
+      "expectedChapters": 4,
+      "actualChapters": 4,
+      "totalVerses": 55,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "MAT",
+      "nameBn": "মথি",
+      "nameEn": "Matthew",
+      "expectedChapters": 28,
+      "actualChapters": 28,
+      "totalVerses": 1069,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "MRK",
+      "nameBn": "মার্ক",
+      "nameEn": "Mark",
+      "expectedChapters": 16,
+      "actualChapters": 16,
+      "totalVerses": 674,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "LUK",
+      "nameBn": "লূক",
+      "nameEn": "Luke",
+      "expectedChapters": 24,
+      "actualChapters": 24,
+      "totalVerses": 1151,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JHN",
+      "nameBn": "যোহন",
+      "nameEn": "John",
+      "expectedChapters": 21,
+      "actualChapters": 21,
+      "totalVerses": 879,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "ACT",
+      "nameBn": "প্রেরিতদের কার্য",
+      "nameEn": "Acts",
+      "expectedChapters": 28,
+      "actualChapters": 28,
+      "totalVerses": 1003,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "ROM",
+      "nameBn": "রোমীয়",
+      "nameEn": "Romans",
+      "expectedChapters": 16,
+      "actualChapters": 16,
+      "totalVerses": 431,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1CO",
+      "nameBn": "১ করিন্থীয়",
+      "nameEn": "1 Corinthians",
+      "expectedChapters": 16,
+      "actualChapters": 16,
+      "totalVerses": 437,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2CO",
+      "nameBn": "২ করিন্থীয়",
+      "nameEn": "2 Corinthians",
+      "expectedChapters": 13,
+      "actualChapters": 13,
+      "totalVerses": 257,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "GAL",
+      "nameBn": "গালাতীয়",
+      "nameEn": "Galatians",
+      "expectedChapters": 6,
+      "actualChapters": 6,
+      "totalVerses": 149,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "EPH",
+      "nameBn": "ইফিষীয়",
+      "nameEn": "Ephesians",
+      "expectedChapters": 6,
+      "actualChapters": 6,
+      "totalVerses": 155,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "PHP",
+      "nameBn": "ফিলিপীয়",
+      "nameEn": "Philippians",
+      "expectedChapters": 4,
+      "actualChapters": 4,
+      "totalVerses": 104,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "COL",
+      "nameBn": "কলসীয়",
+      "nameEn": "Colossians",
+      "expectedChapters": 4,
+      "actualChapters": 4,
+      "totalVerses": 95,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1TH",
+      "nameBn": "১ থিষলনীকীয়",
+      "nameEn": "1 Thessalonians",
+      "expectedChapters": 5,
+      "actualChapters": 5,
+      "totalVerses": 85,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2TH",
+      "nameBn": "২ থিষলনীকীয়",
+      "nameEn": "2 Thessalonians",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 47,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1TI",
+      "nameBn": "১ তীমথিয়",
+      "nameEn": "1 Timothy",
+      "expectedChapters": 6,
+      "actualChapters": 6,
+      "totalVerses": 113,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2TI",
+      "nameBn": "২ তীমথিয়",
+      "nameEn": "2 Timothy",
+      "expectedChapters": 4,
+      "actualChapters": 4,
+      "totalVerses": 83,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "TIT",
+      "nameBn": "তীত",
+      "nameEn": "Titus",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 46,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "PHM",
+      "nameBn": "ফিলীমন",
+      "nameEn": "Philemon",
+      "expectedChapters": 1,
+      "actualChapters": 1,
+      "totalVerses": 25,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "HEB",
+      "nameBn": "ইব্রীয়",
+      "nameEn": "Hebrews",
+      "expectedChapters": 13,
+      "actualChapters": 13,
+      "totalVerses": 303,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JAS",
+      "nameBn": "যাকোব",
+      "nameEn": "James",
+      "expectedChapters": 5,
+      "actualChapters": 5,
+      "totalVerses": 108,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1PE",
+      "nameBn": "১ পিতর",
+      "nameEn": "1 Peter",
+      "expectedChapters": 5,
+      "actualChapters": 5,
+      "totalVerses": 105,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2PE",
+      "nameBn": "২ পিতর",
+      "nameEn": "2 Peter",
+      "expectedChapters": 3,
+      "actualChapters": 3,
+      "totalVerses": 61,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "1JN",
+      "nameBn": "১ যোহন",
+      "nameEn": "1 John",
+      "expectedChapters": 5,
+      "actualChapters": 5,
+      "totalVerses": 105,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "2JN",
+      "nameBn": "২ যোহন",
+      "nameEn": "2 John",
+      "expectedChapters": 1,
+      "actualChapters": 1,
+      "totalVerses": 13,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "3JN",
+      "nameBn": "৩ যোহন",
+      "nameEn": "3 John",
+      "expectedChapters": 1,
+      "actualChapters": 1,
+      "totalVerses": 15,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "JUD",
+      "nameBn": "যিহূদা",
+      "nameEn": "Jude",
+      "expectedChapters": 1,
+      "actualChapters": 1,
+      "totalVerses": 25,
+      "status": "COMPLETE"
+    },
+    {
+      "id": "REV",
+      "nameBn": "প্রকাশিত বাক্য",
+      "nameEn": "Revelation",
+      "expectedChapters": 22,
+      "actualChapters": 22,
+      "totalVerses": 405,
+      "status": "COMPLETE"
+    }
+  ]
+}

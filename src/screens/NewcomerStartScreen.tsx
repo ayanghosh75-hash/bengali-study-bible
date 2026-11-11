@@ -1,0 +1,457 @@
+import React, { useState } from 'react';
+import {
+  BookOpen,
+  Sparkles,
+  ArrowRight,
+  Heart,
+  Compass,
+  Lightbulb,
+  CheckCircle2,
+  HelpCircle,
+  Users,
+  ShieldCheck,
+  Search,
+  ExternalLink,
+  ChevronDown,
+  ChevronUp,
+  Bookmark,
+  Share2,
+} from 'lucide-react';
+
+interface NewcomerStartScreenProps {
+  onNavigateToBible: (bookId: string, chapter: number, verse?: number) => void;
+  onNavigateToStudy?: () => void;
+  onNavigateToSearch?: () => void;
+  onNavigateToInstall?: () => void;
+}
+
+export const NewcomerStartScreen: React.FC<NewcomerStartScreenProps> = ({
+  onNavigateToBible,
+  onNavigateToStudy,
+  onNavigateToSearch,
+  onNavigateToInstall,
+}) => {
+  const [expandedSection, setExpandedSection] = useState<number | null>(null);
+
+  const toggleSection = (idx: number) => {
+    setExpandedSection(expandedSection === idx ? null : idx);
+  };
+
+  const sections = [
+    {
+      id: 1,
+      title: '১. বাইবেল কী?',
+      subtitle: 'What is the Bible? একটি পবিত্র গ্রন্থাগার',
+      summary:
+        'বাইবেল কেবল একটি বই নয়, বরং ৬৬টি পৃথক পৃথক পুস্তকের একটি সংকলন বা ঐশ্বরিক গ্রন্থাগার। প্রায় ১,৫০০ বছর ধরে মধ্যপ্রাচ্য, এশিয়া ও ইউরোপের বিভিন্ন প্রান্তে প্রায় ৪০ জন লেখকের মাধ্যমে এটি লিখিত হয়েছে।',
+      details: [
+        'ঐতিহাসিক প্রেক্ষাপটে: বাইবেলের মূল অংশ হিব্রু, আরামীয় এবং প্রাচীন গ্রিক (কয়নে গ্রিক) ভাষায় লিখিত হয়েছিল।',
+        'খ্রিষ্টীয় বিশ্বাসে: ঈশ্বর তাঁর বাক্যকে বিভিন্ন ঐতিহাসিক প্রেক্ষাপট ও মানবীয় লেখকদের অনুভূতির মধ্য দিয়ে প্রকাশ করেছেন, যার মূল বার্তা ঈশ্বরের অপার্থিব প্রেম ও মানবজাতির পরিত্রাণ।',
+        'সাহিত্যিক রূপ: এতে রয়েছে ইতিহাস, কবিতা, বিজ্ঞ বাক্য, ভাববাণী, চিঠি (পত্র) এবং দর্শনীয় রূপক সাহিত্য।',
+      ],
+      actionLabel: 'আদিপুস্তক ১ পাঠ করুন',
+      bookId: 'GEN',
+      chapter: 1,
+    },
+    {
+      id: 2,
+      title: '২. বাইবেলের ৬৬টি বই',
+      subtitle: 'The 66 Books of the Bible',
+      summary:
+        'প্রোটেস্ট্যান্ট ও বিশ্বব্যাপী স্বীকৃত ক্যানন অনুযায়ী পবিত্র বাইবেলে মোট ৬৬টি পুস্তক রয়েছে—৩৯টি পুরাতন নিয়মে এবং ২৭টি নতুন নিয়মে। বাংলা স্টাডি বাইবেলে এই ৬৬টি বইয়ের সম্পূর্ণ শুদ্ধ পাঠ অন্তর্ভুক্ত।',
+      details: [
+        'পুরাতন নিয়ম (৩৯টি বই): সৃষ্টি, ইস্রায়েল জাতির ইতিহাস, ব্যবস্থা বা বিধি, গীতসংহিতা ও নবীদের ভাববাণী।',
+        'নতুন নিয়ম (২৭টি বই): যীশু খ্রিষ্টের জীবন ও শিক্ষা (৪টি সুসমাচার), প্রথম মণ্ডলীর বিস্তার (প্রেরিতদের কার্য), ধর্মতাত্ত্বিক পত্রাবলি এবং প্রকাশিত বাক্য।',
+        'ভাষান্তর: ১৬শ শতাব্দী থেকে শুরু করে উইলিয়াম কেরি ও আধুনিক বাইবেল অনুবাদকদের অক্লান্ত পরিশ্রমে আজ বাংলায় সম্পূর্ণ নির্ভরযোগ্য বাইবেল আমাদের হাতে বিদ্যমান।',
+      ],
+      actionLabel: '৬৬টি পুস্তকের সূচি দেখুন',
+      bookId: 'MAT',
+      chapter: 1,
+    },
+    {
+      id: 3,
+      title: '৩. পুরাতন নিয়ম ও নতুন নিয়ম',
+      subtitle: 'Old Testament & New Testament',
+      summary:
+        'পুরাতন নিয়ম মানবজাতির সৃষ্টি, পাপের প্রবেশ এবং ঈশ্বরের প্রতিশ্রুত ত্রাণকর্তার আগমনী বার্তার প্রতিশ্রুতি বহন করে। নতুন নিয়ম যীশু খ্রিষ্টের মধ্যে সেই প্রতিশ্রুতির পূর্ণতা ও নতুন নিয়মের অনুগ্রহ প্রকাশ করে।',
+      details: [
+        'বাইবেল বলে: পুরাতন নিয়ম হলো ছায়া এবং নতুন নিয়ম হলো সেই সত্য কায়া যা খ্রিষ্টে উদ্ভাসিত।',
+        'ঐতিহাসিক দৃষ্টিকোণ: পুরাতন নিয়ম প্রাচীন নিকট-প্রাচ্যের সেমিটিক সমাজ ও সংস্কৃতির পটভূমিতে লিখিত; নতুন নিয়ম গ্রেকো-রোমান সাম্রাজ্যের প্রথম শতাব্দীর প্রেক্ষাপটে গ্রথিত।',
+        'সংযোগ: নতুন নিয়ম বুঝতে গেলে পুরাতন নিয়মের ভাববাণী ও ঈশ্বরের চুক্তিসমূহের জ্ঞান গভীর সহায়তা করে।',
+      ],
+      actionLabel: 'যিশাইয় ৫৩ ভাববাণী পড়ুন',
+      bookId: 'ISA',
+      chapter: 53,
+    },
+    {
+      id: 4,
+      title: '৪. যীশু কে?',
+      subtitle: 'Who is Jesus Christ?',
+      summary:
+        'যীশু (যীশু নাসরতীয়) মানব ইতিহাসের সবচেয়ে প্রভাবশালী ব্যক্তিত্ব। তিনি প্রায় ২,০০০ বছর আগে তৎকালীন জুদিয়ার বেথলেহেমে জন্মগ্রহণ করেন এবং গালীলে সত্য, করুণা ও ঈশ্বরের রাজ্যের সুসংবাদ প্রচার করেন।',
+      details: [
+        'ঐতিহাসিক প্রেক্ষাপটে: আধুনিক ইতিহাসবিদরা একমত যে ১ম শতাব্দীতে যীশু নামে এক ইহুদি শিক্ষক ও প্রচারক ছিলেন, যিনি রোমান রাজ্যপাল পন্তীয় পীলাতের অধীনে ক্রুশারোপিত হন।',
+        'খ্রিষ্টীয় বিশ্বাসে: যীশু কেবল একজন নীতিশিক্ষক নন, বরং তিনি ঈশ্বরের অবতার (মসিহ বা খ্রিষ্ট), যিনি মানবজাতিকে পাপের দাসত্ব থেকে মুক্ত করে অনন্ত জীবন দিতে পৃথিবীতে এসেছিলেন।',
+        'ব্যক্তিগত শিক্ষা: তাঁর জীবনে কখনো কোনো ক্ষমতার অহংকার ছিল না; তিনি দীন-দরিদ্র, পীড়িত, অনাথ ও পাপীদের আশ্রয় ও মুক্তির পথ দেখিয়েছেন।',
+      ],
+      actionLabel: 'যোহন ১ অধ্যায় পড়ুন',
+      bookId: 'JHN',
+      chapter: 1,
+    },
+    {
+      id: 5,
+      title: '৫. চারটি সুসমাচার কী?',
+      subtitle: 'The Four Gospels: Matthew, Mark, Luke, John',
+      summary:
+        'নতুন নিয়মের প্রথম চারটি বই—মথি, মার্ক, লূক এবং যোহন—যীশুর জীবনী ও আত্মিক সাক্ষ্য বহন করে। এই চারটি বিবরণ চার ভিন্ন দৃষ্টিকোণ থেকে যীশুর পরিপূর্ণ প্রতিকৃতি আমাদের উপহার দেয়।',
+      details: [
+        'মথি (Matthew): ইহুদি পাঠকদের জন্য লিখিত; যীশুকে পুরাতন নিয়মের প্রতিশ্রুত রাজা ও মসিহ হিসেবে তুলে ধরে।',
+        'মার্ক (Mark): রোমান পাঠকদের জন্য রচিত সংক্ষিপ্ত ও কর্মমুখর সুসমাচার; যীশুকে কষ্টভোগকারী সেবক হিসেবে প্রকাশ করে।',
+        'লূক (Luke): গ্রিক চিকিৎসক লূক কর্তৃক পুঙ্খানুপুঙ্খ অনুসন্ধানের ভিত্তিতে রচিত; যীশুকে সমগ্র মানবজাতির প্রেমময় ত্রাণকর্তা হিসেবে উপস্থাপন করে।',
+        'যোহন (John): গভীর আধ্যাত্মিক ও ধর্মতাত্ত্বিক সাক্ষ্য; যীশুর ঈশ্বরত্ব ও অনন্ত জীবনের সত্যকে উন্মোচিত করে।',
+      ],
+      actionLabel: 'মার্ক ১ সুসমাচার শুরু করুন',
+      bookId: 'MRK',
+      chapter: 1,
+    },
+    {
+      id: 6,
+      title: '৬. কোথা থেকে পড়া শুরু করব?',
+      subtitle: 'Where Should a Beginner Start?',
+      summary:
+        'বাইবেল একটি সাধারণ উপন্যাসের মতো প্রথম পৃষ্ঠা থেকে শেষ পৃষ্ঠা পর্যন্ত ক্রমান্বয়ে পড়ার চেয়ে সঠিক নির্দেশিকা নিয়ে শুরু করা নতুন পাঠকের জন্য শতগুণ বেশি সহজ ও অর্থপূর্ণ।',
+      details: [
+        'সর্বোত্তম পরামর্শ: সরাসরি "মার্ক লিখিত সুসমাচার" (Gospel of Mark) দিয়ে শুরু করুন। এটি মাত্র ১৬টি অধ্যায়ের এবং সহজ-সরল ভাষায় যীশুর জীবনের মূল ঘটনাগুলো দ্রুত তুলে ধরে।',
+        'দ্বিতীয় ধাপ: এরপর "যোহন লিখিত সুসমাচার" পাঠ করুন, বিশেষ করে বিখ্যাত যোহন ৩ অধ্যায়—যেখানে ঈশ্বরের নিঃশর্ত ভালোবাসার পরিচয় মেলে।',
+        'শান্তির জন্য: পুরাতন নিয়মের গীতসংহিতা (Psalms) পড়ুন, বিশেষ করে গীতসংহিতা ২৩—যা জীবনের প্রতিটি ঝড়ে পরম সান্ত্বনা ও সুরক্ষা যোগায়।',
+      ],
+      actionLabel: 'মার্ক সুসমাচার পাঠ করুন',
+      bookId: 'MRK',
+      chapter: 1,
+    },
+    {
+      id: 7,
+      title: '৭. যীশুর জীবন ও পরিচর্যা',
+      subtitle: 'Ministry of Healing, Truth and Compassion',
+      summary:
+        'প্রায় ৩০ বছর বয়সে যীশু বাপ্তিস্মদাতা যোহনের কাছে বাপ্তাইজ হন এবং পরবর্তী ৩ বছর সাধারণ মানুষের মধ্যে অলৌকিক সুস্থতা, পাপীদের ক্ষমা এবং ঈশ্বরের রাজ্যের বাস্তব জীবনাদর্শ শিক্ষা দেন।',
+      details: [
+        'করুণা ও প্রেম: তিনি কুষ্ঠরোগী, অন্ধ, পঙ্গু ও সমাজচ্যুত করগ্রাহীদের ছুঁয়ে সুস্থ ও সম্মানিত করেছেন।',
+        'অন্যায় ও কপটতার বিরোধিতা: তৎকালীন ধর্মীয় নেতাদের আত্মতুষ্টি ও কপটতার বিরুদ্ধে তিনি সাহসের সাথে সত্য ঘোষণা করেছেন।',
+        'নম্রতা: তিনি কখনো সৈন্যবাহিনী গড়েননি, বরং অনুসারীদের পা ধৌত করে শিখিয়েছেন—যে নেতা হতে চায়, তাকে সবার সেবক হতে হবে।',
+      ],
+      actionLabel: 'লূক ৪ পাঠ করুন',
+      bookId: 'LUK',
+      chapter: 4,
+    },
+    {
+      id: 8,
+      title: '৮. যীশুর শিক্ষা ও উপমা',
+      subtitle: 'The Sermon on the Mount & Parables',
+      summary:
+        'যীশুর শিক্ষা মানব ইতিহাসের সর্বকালের নৈতিকতার সর্বোচ্চ শিখর। তিনি পাহাড়ের উপদেশে মানব অন্তরের গভীর ধার্মিকতা, শত্রুকে ভালোবাসা এবং অহিংসার শিক্ষা দেন।',
+      details: [
+        'স্বর্ণালী নিয়ম (Golden Rule): "তোমরা মানুষের কাছ থেকে যেমন ব্যবহার পেতে চাও, তাদের প্রতিও ঠিক তেমনি ব্যবহার করো।" (মথি ৭:১২)',
+        'শত্রু প্রেম: "তোমাদের শত্রুদের ভালোবাসো, যারা তোমাদের তাড়না করে তাদের জন্য প্রার্থনা করো।" (মথি ৫:৪৪)',
+        'উপমা বা নীতিগল্প (Parables): হারানো পুত্র, সৎ শমরীয় ও বীজ বপকের উপমার মাধ্যমে জটিল আত্মিক সত্যকে অতি সহজ উপায়ে বুঝিয়েছেন।',
+      ],
+      actionLabel: 'মথি ৫ পাহাড়ের উপদেশ পড়ুন',
+      bookId: 'MAT',
+      chapter: 5,
+    },
+    {
+      id: 9,
+      title: '৯. ক্রুশ ও আত্মদান',
+      subtitle: 'The Cross: Sacrifice of Redemption',
+      summary:
+        'যীশুকে কোনো অপরাধের কারণে নয়, বরং মানবজাতির পাপের প্রায়শ্চিত্ত হিসেবে স্বেচ্ছায় নিজের জীবন ক্রুশে সমর্পণ করতে হয়েছিল। ক্রুশ হলো ঈশ্বরের অনন্ত ন্যায়বিচার ও অগাধ প্রেমের পরম মিলনক্ষেত্র।',
+      details: [
+        'স্বেচ্ছাপ্রণোদিত বলিদান: যীশু বলেছিলেন, "আমার কাছ থেকে কেউ জীবন কেড়ে নেয় না, বরং আমি নিজেই তা সমর্পণ করি।"',
+        'ক্ষমার শীর্ষ পরাকাষ্ঠা: ক্রুশে পেরেকবিদ্ধ অসহ্য যন্ত্রণার মাঝেও তিনি জল্লাদদের জন্য প্রার্থনা করেছিলেন: "পিতা, এদের ক্ষমা করো, কারণ এরা জানে না এরা কী করছে।" (লূক ২৩:৩৪)',
+        'পরিত্রাণ: খ্রিষ্টীয় ধর্মতত্ত্বে ক্রুশে যীশুর রক্তপাতের মধ্য দিয়ে মানুষ ঈশ্বরের সাথে সম্পর্কের পুনরুদ্ধার লাভ করে।',
+      ],
+      actionLabel: 'যোহন ১৯ ক্রুশারোহণ পড়ুন',
+      bookId: 'JHN',
+      chapter: 19,
+    },
+    {
+      id: 10,
+      title: '১০. গৌরবময় পুনরুত্থান',
+      subtitle: 'The Resurrection: Triumph Over Death',
+      summary:
+        'খ্রিষ্টধর্ম ক্রুশেই শেষ হয়ে যায়নি। সমাধিস্থ হওয়ার তৃতীয় দিনে যীশু মৃত্যু থেকে পুনরুত্থিত হন। খ্রিষ্টীয় বিশ্বাসের মূল ভিত্তি হলো এই জীবন্ত যীশু।',
+      details: [
+        'খালি সমাধি: রবিবার ভোরে ভক্ত নারীরা সমাধিতে গিয়ে দেখেন পাথর গড়ানো এবং সমাধি শূন্য।',
+        'প্রত্যক্ষদর্শীদের সাক্ষ্য: পুনরুত্থানের পর যীশু একাধারে ৪০ দিন তাঁর শিষ্যদের সামনে সশরীরে আবির্ভূত হন এবং ৫০০ জনেরও বেশি লোক তাঁকে একত্রে জীবিত দেখেছিলেন।',
+        'আশার বার্তা: পুনরুত্থান নিশ্চিত করে যে অন্ধকার ও মৃত্যুর ওপর অনন্ত জীবনের জয় সুনিশ্চিত।',
+      ],
+      actionLabel: 'যোহন ২০ পুনরুত্থান পড়ুন',
+      bookId: 'JHN',
+      chapter: 20,
+    },
+    {
+      id: 11,
+      title: '১১. প্রেরিতদের কার্য ও সুসমাচারের বিস্তার',
+      subtitle: 'Acts of the Apostles',
+      summary:
+        'যীশুর স্বর্গারোহণের পর পিস্কা (পেন্টিকস্ট) দিবসে পবিত্র আত্মা শিষ্যদের ওপর নেমে আসেন। ভীতু মৎস্যজীবীরা সিংহের মতো সাহসী হয়ে রোমান সাম্রাজ্যময় সুসমাচার ছড়িয়ে দেন।',
+      details: [
+        'পবিত্র আত্মার শক্তি: অলৌকিক ভাষা, নির্ভীক সাক্ষ্য ও অলৌকিক নিরাময়ের মাধ্যমে প্রথম মণ্ডলী গড়ে ওঠে।',
+        'পৌল (Paul)-এর রূপান্তর: যিনি আগে খ্রিষ্টানদের হত্যা করতেন, সেই শৌল যীশুর অলৌকিক দর্শনে প্রেরিত পৌলে রূপান্তরিত হয়ে সমগ্র ইউরোপ ও এশিয়ায় মণ্ডলী স্থাপন করেন।',
+        'বাধা ও তাড়না: অগণিত রক্তপাত ও নির্যাতন সত্ত্বেও সুসমাচারের প্রবাহ কেউ রুখতে পারেনি।',
+      ],
+      actionLabel: 'প্রেরিতদের কার্য ২ অধ্যায় পড়ুন',
+      bookId: 'ACT',
+      chapter: 2,
+    },
+    {
+      id: 12,
+      title: '১২. প্রথম খ্রিষ্টীয় সমাজ ও সম্প্রীতি',
+      subtitle: 'The Early Christian Fellowship',
+      summary:
+        'প্রথম শতাব্দীর বিশ্বাসীরা কোনো আচারসর্বস্ব প্রতিষ্ঠানে আবদ্ধ ছিলেন না; তাঁরা পারিবারিক ভালোবাসায় একতাবদ্ধ ছিলেন—যেখানে ধনী-দরিদ্রের কোনো কৃত্রিম বিভেদ ছিল না।',
+      details: [
+        'ভ্রাতৃত্ববোধ: "তারা প্রতিদিন মন্দিরে সমবেত হতো ও ঘরে ঘরে রুটি ভাঙত, এবং আনন্দ ও সরল অন্তরে খাদ্য গ্রহণ করত।" (প্রেরিত ২:৪৬)',
+        'নিঃস্বদের সেবা: বিধবা, এতিম ও পীড়িতদের সেবায় তারা সর্বস্ব সমর্পণ করেছিলেন।',
+        'বিশ্বাসের পরীক্ষা: রোমান সম্রাটদের চরম নির্যাতনের মুখেও তারা প্রতিশোধ না নিয়ে প্রেমের পরিচয় দিয়েছিলেন।',
+      ],
+      actionLabel: 'প্রেরিতদের কার্য ৪ পড়ুন',
+      bookId: 'ACT',
+      chapter: 4,
+    },
+    {
+      id: 13,
+      title: '১৩. এরপর কী পড়ব? পরবর্তী পদক্ষেপ',
+      subtitle: 'What Should I Read Next? Ongoing Journey',
+      summary:
+        'আপনার শাস্ত্রীয় আবিষ্কারের যাত্রা এখানেই শেষ নয়, বরং এটি একটি আজীবন আধ্যাত্মিক সম্পদ। আপনার রুচি ও প্রয়োজন অনুযায়ী আপনি নিচে প্রস্তাবিত পথগুলো অনুসরণ করতে পারেন।',
+      details: [
+        'জ্ঞান ও প্রজ্ঞার জন্য: হিতোপদেশ (Proverbs) — ব্যবহারিক জীবনের প্রতিটি সিদ্ধান্তের নিখুঁত নির্দেশনা।',
+        'গভীর ধর্মতত্ত্বের জন্য: রোমীয় (Romans) বিশেষ করে রোমীয় ৮ অধ্যায় — স্বাধীনতা, বিজয় ও ঈশ্বরের ভালোবাসা।',
+        'দৈনন্দিন প্রার্থনা ও আত্মিক শক্তির জন্য: গীতসংহিতা (Psalms) — আনন্দ ও ব্যথার পরম প্রকাশ।',
+      ],
+      actionLabel: 'রোমীয় ৮ অধ্যায় পড়ুন',
+      bookId: 'ROM',
+      chapter: 8,
+    },
+  ];
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8 font-sans space-y-8 animate-fade-in text-stone-900 dark:text-stone-100">
+      {/* Top Hero Banner */}
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-950 via-stone-900 to-navy-950 text-white p-6 sm:p-10 border border-emerald-500/30 shadow-2xl">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 space-y-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold uppercase tracking-wider">
+            <span>🌱 নতুন পাঠকের নির্দেশিকা • First-Time Reader Mode</span>
+          </div>
+
+          <h1 className="text-2xl sm:text-4xl font-serif font-extrabold tracking-tight text-white">
+            বাইবেল প্রথমবার পড়ছেন?
+          </h1>
+
+          <p className="text-sm sm:text-base text-stone-200/90 max-w-2xl leading-relaxed">
+            স্বাগতম! আপনি খ্রিষ্টান, অন্যান্য ধর্মের অনুসারী, ছাত্র, শিক্ষক বা নিছক কৌতূহলী পাঠক—যাই হোন না কেন, এই বইটি বিশ্বের সবচেয়ে পঠিত ও অনূদিত গ্রন্থ। কোনো পূর্ব অভিজ্ঞতা ছাড়াই সহজ ও মর্যাদাপূর্ণভাবে পবিত্র বাইবেল বোঝার জন্য এই নির্দেশিকাটি প্রস্তুত করা হয়েছে।
+          </p>
+
+          <div className="pt-2 flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => onNavigateToBible('MRK', 1)}
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>মার্ক সুসমাচার দিয়ে শুরু করুন</span>
+            </button>
+
+            {onNavigateToSearch && (
+              <button
+                onClick={onNavigateToSearch}
+                className="px-4 py-2.5 rounded-xl bg-stone-800/80 hover:bg-stone-800 text-stone-200 border border-stone-700 font-semibold text-xs transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Search className="w-4 h-4 text-amber-400" />
+                <span>শাস্ত্রীয় অনুসন্ধান</span>
+              </button>
+            )}
+
+            {onNavigateToInstall && (
+              <button
+                onClick={onNavigateToInstall}
+                className="px-4 py-2.5 rounded-xl bg-emerald-800/80 hover:bg-emerald-700 text-emerald-200 border border-emerald-600/40 font-semibold text-xs transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <span>📱 অফলাইন অ্যাপ সংরক্ষণ</span>
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Respectful Non-Christian Access Note */}
+      <div className="p-4 sm:p-5 rounded-2xl bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-xs sm:text-sm text-amber-950 dark:text-amber-200 leading-relaxed flex items-start gap-3">
+        <ShieldCheck className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+        <div>
+          <strong className="font-semibold block mb-1">
+            সম্মানজনক ও মুক্ত পরিবেশের প্রতিশ্রুতি (Respectful & Open Exploration):
+          </strong>
+          <span>
+            বাংলা স্টাডি বাইবেল কোনো পাঠককে জোরপূর্বক কোনো ধর্মীয় বিশ্বাস চাপিয়ে দেয় না। এখানে ইতিহাস, সাহিত্য এবং ধর্মতাত্ত্বিক প্রেক্ষাপটকে স্পষ্টভাবে আলাদা করে উপস্থাপন করা হয়েছে। আপনি তথ্য জানুন, শাস্ত্রের কথা সরাসরি পড়ুন এবং স্বাধীনভাবে উপলব্ধি করুন।
+          </span>
+        </div>
+      </div>
+
+      {/* Recommended "Knowing Jesus" Quick Journey */}
+      <div className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+            <Heart className="w-5 h-5" />
+          </div>
+          <div>
+            <h2 className="text-lg sm:text-xl font-serif font-bold text-stone-900 dark:text-stone-100">
+              প্রস্তাবিত পাঠ্যক্রম: "যীশুকে জানুন" (Knowing Jesus Journey)
+            </h2>
+            <p className="text-xs text-stone-500 dark:text-stone-400">
+              নতুন পাঠকদের জন্য ৮টি প্রধান আধ্যাত্মিক মাইলফলক (যেকোনো একটিতে ক্লিক করে সরাসরি পড়ুন)
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+          {[
+            { step: '১', title: 'যীশুর সূচনা ও আগমন', ref: 'মার্ক ১', bookId: 'MRK', ch: 1 },
+            { step: '২', title: 'পাহাড়ের উপদেশ ও প্রেম', ref: 'মথি ৫–৭', bookId: 'MAT', ch: 5 },
+            { step: '৩', title: 'ক্ষমা ও করুণা (হারানো পুত্র)', ref: 'লূক ১৫', bookId: 'LUK', ch: 15 },
+            { step: '৪', title: 'অনন্ত জীবন ও ঈশ্বরের প্রেম', ref: 'যোহন ৩:১৬', bookId: 'JHN', ch: 3 },
+            { step: '৫', title: 'ক্রুশারোপণ ও আত্মোৎসর্গ', ref: 'মার্ক ১৫', bookId: 'MRK', ch: 15 },
+            { step: '৬', title: 'মৃত্যুঞ্জয়ী পুনরুত্থান', ref: 'যোহন ২০', bookId: 'JHN', ch: 20 },
+            { step: '৭', title: 'প্রথম মণ্ডলীর ভ্রাতৃত্ব', ref: 'প্রেরিত ২', bookId: 'ACT', ch: 2 },
+            { step: '৮', title: 'শান্তি ও পরম আশ্বাস', ref: 'গীতসংহিতা ২৩', bookId: 'PSA', ch: 23 },
+          ].map((item) => (
+            <button
+              key={item.step}
+              onClick={() => onNavigateToBible(item.bookId, item.ch)}
+              className="p-3 rounded-2xl bg-stone-50 dark:bg-stone-800/60 hover:bg-amber-50 dark:hover:bg-amber-950/40 border border-stone-200 dark:border-stone-700/80 hover:border-amber-400 text-left transition-all cursor-pointer group"
+            >
+              <div className="flex items-center justify-between text-[11px] text-stone-400 mb-1">
+                <span className="font-bold text-amber-600 dark:text-amber-400">ধাপ {item.step}</span>
+                <span className="font-mono">{item.ref}</span>
+              </div>
+              <div className="font-bold text-stone-800 dark:text-stone-200 group-hover:text-amber-800 dark:group-hover:text-amber-300">
+                {item.title}
+              </div>
+              <span className="text-[10px] text-amber-600 dark:text-amber-400 mt-2 flex items-center gap-1 font-semibold">
+                পড়ুন ➔
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* 13-Step Comprehensive Newcomer Curriculum */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+            <Compass className="w-6 h-6 text-amber-500" />
+            <span>১৩টি ধাপে বাইবেলের সার্বিক পরিচয় (Step-by-Step Guide)</span>
+          </h2>
+          <span className="text-xs text-stone-400">১৩টি পূর্ণাঙ্গ বিষয়</span>
+        </div>
+
+        <div className="space-y-3">
+          {sections.map((sec) => {
+            const isExpanded = expandedSection === sec.id;
+            return (
+              <div
+                key={sec.id}
+                className="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 rounded-2xl transition-all shadow-sm overflow-hidden"
+              >
+                <div
+                  onClick={() => toggleSection(sec.id)}
+                  className="p-4 sm:p-5 flex items-center justify-between gap-4 cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-800/50 transition-colors"
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 font-bold text-xs">
+                      {sec.id}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-sm sm:text-base font-bold text-stone-900 dark:text-stone-100 truncate">
+                        {sec.title}
+                      </h3>
+                      <p className="text-xs text-stone-500 dark:text-stone-400 truncate">
+                        {sec.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className="hidden sm:inline-block text-xs font-semibold text-amber-600 dark:text-amber-400">
+                      {isExpanded ? 'সংক্ষেপ করুন' : 'বিস্তারিত জানুন'}
+                    </span>
+                    {isExpanded ? (
+                      <ChevronUp className="w-4 h-4 text-stone-400" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-stone-400" />
+                    )}
+                  </div>
+                </div>
+
+                {isExpanded && (
+                  <div className="px-5 pb-5 pt-1 border-t border-stone-100 dark:border-stone-800 text-xs sm:text-sm text-stone-700 dark:text-stone-300 space-y-3 animate-fade-in">
+                    <p className="font-medium text-stone-800 dark:text-stone-200 leading-relaxed">
+                      {sec.summary}
+                    </p>
+
+                    <div className="p-3.5 bg-stone-50 dark:bg-stone-800/60 rounded-xl space-y-2 border border-stone-200 dark:border-stone-700/60">
+                      {sec.details.map((det, dIdx) => (
+                        <div key={dIdx} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
+                          <span className="leading-relaxed">{det}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between pt-2">
+                      <button
+                        onClick={() => onNavigateToBible(sec.bookId, sec.chapter)}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer shadow-sm"
+                      >
+                        <BookOpen className="w-3.5 h-3.5" />
+                        <span>{sec.actionLabel} ➔</span>
+                      </button>
+
+                      {onNavigateToStudy && (
+                        <button
+                          onClick={onNavigateToStudy}
+                          className="text-xs text-stone-500 hover:text-amber-600 dark:hover:text-amber-400 underline font-medium"
+                        >
+                          সম্পর্কিত স্টাডি দেখুন
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Bottom Action Card */}
+      <div className="p-6 sm:p-8 rounded-3xl bg-stone-100 dark:bg-stone-900 border border-stone-300 dark:border-stone-800 text-center space-y-3">
+        <h3 className="font-serif text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100">
+          আপনার শাস্ত্রীয় যাত্রা শুরু করতে প্রস্তুত?
+        </h3>
+        <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-400 max-w-xl mx-auto">
+          কোনো নিবন্ধন বা অ্যাপ ইনস্টলেশন ছাড়াই সরাসরি ব্রাউজারে সম্পূর্ণ বাংলা বাইবেল পড়ুন ও অনুসন্ধান করুন।
+        </p>
+        <div className="pt-2 flex justify-center gap-3">
+          <button
+            onClick={() => onNavigateToBible('MRK', 1)}
+            className="px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-2xl text-xs font-bold transition-all shadow-md cursor-pointer"
+          >
+            📖 এখনই বাইবেল পাঠ শুরু করুন
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};

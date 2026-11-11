@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160">
+  <defs>
+    <linearGradient id="navyTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B192C"/>
+      <stop offset="100%" stop-color="#1E3A5F"/>
+    </linearGradient>
+    <linearGradient id="goldLightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8860B"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#997321"/>
+    </linearGradient>
+    <linearGradient id="leftPageLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Symbol Adapted for Light Background -->
+  <g transform="translate(80, 80) scale(0.35) translate(-256, -250)">
+    <!-- Base shadow -->
+    <path d="M 94 366 C 160 388 232 376 256 364 C 280 376 352 388 418 366 C 424 374 416 384 410 386 C 348 406 278 394 256 382 C 234 394 164 406 102 386 Z" 
+          fill="#B8860B"/>
+    <!-- Left Page -->
+    <path d="M 244 204 C 182 178 116 182 82 202 L 76 348 C 122 342 186 338 244 358 Z" 
+          fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>
+    <!-- Right Page -->
+    <path d="M 268 204 C 330 178 396 182 430 202 L 436 348 C 390 342 326 338 268 358 Z" 
+          fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+    <!-- Central Cross -->
+    <rect x="245" y="96" width="22" height="136" rx="5" fill="url(#goldLightGrad)"/>
+    <rect x="194" y="138" width="124" height="22" rx="5" fill="url(#goldLightGrad)"/>
+    <!-- Star Flare -->
+    <path d="M 256 52 C 257 74 266 84 286 86 C 266 88 257 98 256 120 C 255 98 246 88 226 86 C 246 84 255 74 256 52 Z" 
+          fill="url(#goldLightGrad)"/>
+  </g>
+
+  <!-- Separator -->
+  <line x1="165" y1="35" x2="165" y2="125" stroke="#B8860B" stroke-width="2" opacity="0.5"/>
+
+  <!-- Title & Subtitle -->
+  <text x="190" y="75" 
+        font-family="'Noto Serif Bengali', 'Vrinda', 'Nirmala UI', serif" 
+        font-size="34" 
+        font-weight="700" 
+        fill="url(#navyTextGrad)">
+    বাংলা স্টাডি বাইবেল
+  </text>
+
+  <text x="192" y="106" 
+        font-family="'Noto Sans Bengali', sans-serif" 
+        font-size="14.5" 
+        font-weight="600" 
+        fill="#B8860B" 
+        letter-spacing="1">
+    পড়ুন • বুঝুন • অধ্যয়ন করুন • প্রয়োগ করুন
+  </text>
+
+  <text x="192" y="128" 
+        font-family="'Cinzel', 'Georgia', serif" 
+        font-size="11" 
+        font-weight="600" 
+        fill="#475569" 
+        letter-spacing="2.5">
+    BENGALI STUDY BIBLE PLATFORM
+  </text>
+</svg>

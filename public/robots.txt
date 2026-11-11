@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /owner
+Disallow: /owner/
+Disallow: /admin/analytics
+Disallow: /owner/analytics
+Disallow: /api/admin/
+Disallow: /mystudy
+Disallow: /library
+
+Sitemap: https://bengalistudybible.com/sitemap.xml
+

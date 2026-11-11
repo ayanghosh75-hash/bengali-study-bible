@@ -1,0 +1,242 @@
+// ============================================================================
+// BENGALI STUDY BIBLE — DEEP AI CONTAINMENT & SELF-PROTECTION SERVICE
+// 5-Layer Architectural Separation & Fail-Closed Containment
+// Strictly Confined to Bengali Study Bible — Zero Control of Logos Lexicon
+// Final Sovereign Authority: Rev. Ayan Kumar Ghosh (Level 5 Owner)
+// ============================================================================
+
+export type ContainmentLayer =
+  | 'LAYER_1_SYSTEM_POLICY'
+  | 'LAYER_2_USER_REQUEST'
+  | 'LAYER_3_RETRIEVED_EVIDENCE'
+  | 'LAYER_4_PROPOSED_ACTION'
+  | 'LAYER_5_EXECUTABLE_OPERATION';
+
+export interface ContainmentViolation {
+  layer: ContainmentLayer;
+  reason: string;
+  detectedPayload?: string;
+  timestamp: string;
+  severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+}
+
+export interface ContainmentCheckResult {
+  allowed: boolean;
+  violations: ContainmentViolation[];
+  sanitizedInput?: string;
+  safeToProceed: boolean;
+}
+
+export interface CompromiseContainmentStatus {
+  isCompromised: boolean;
+  isolationMode: 'NORMAL' | 'READ_ONLY_SAFE' | 'TOTAL_SHUTDOWN';
+  reason?: string;
+  isolatedAt?: string;
+  auditTrail: ContainmentViolation[];
+}
+
+const FORBIDDEN_INJECTION_PATTERNS = [
+  /ignore\s+(all\s+)?previous\s+instructions/i,
+  /you\s+are\s+now\s+(unrestricted|DAN|god|a\s+prophet)/i,
+  /bypass\s+(all\s+)?filters/i,
+  /act\s+as\s+(an\s+oracle|god|jesus\s+christ|holy\s+spirit)/i,
+  /reveal\s+(the\s+)?(master\s+)?(passcode|pin|secret|env|key)/i,
+  /delete\s+(the\s+)?(database|all\s+users|bible)/i,
+  /modify\s+the\s+(holy\s+)?bible/i,
+  /replace\s+the\s+scripture/i,
+  /grant\s+me\s+level\s+5/i,
+  /elevate\s+privilege/i,
+  /disable\s+(safe\s+)?autopilot/i,
+  /cross-project\s+access\s+to\s+lexi/i,
+  /control\s+logos\s+lexicon/i
+];
+
+export class DeepAiContainmentService {
+  private static instance: DeepAiContainmentService;
+  private compromiseStatus: CompromiseContainmentStatus = {
+    isCompromised: false,
+    isolationMode: 'NORMAL',
+    auditTrail: []
+  };
+
+  private constructor() {}
+
+  public static getInstance(): DeepAiContainmentService {
+    if (!DeepAiContainmentService.instance) {
+      DeepAiContainmentService.instance = new DeepAiContainmentService();
+    }
+    return DeepAiContainmentService.instance;
+  }
+
+  /**
+   * Layer 1: System Policy Verification
+   * Enforces that system prompt contains strict Protestant Canon limits,
+   * zero divine claim, zero cross-project control.
+   */
+  public verifySystemPolicy(policyPrompt: string): ContainmentCheckResult {
+    const violations: ContainmentViolation[] = [];
+
+    if (!policyPrompt.includes('বাংলা স্টাডি বাইবেল') && !policyPrompt.includes('Bengali Study Bible')) {
+      violations.push({
+        layer: 'LAYER_1_SYSTEM_POLICY',
+        reason: 'Policy does not identify as dedicated Bengali Study Bible assistant',
+        severity: 'HIGH',
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    if (policyPrompt.toLowerCase().includes('control logos') || policyPrompt.toLowerCase().includes('manage lexi')) {
+      violations.push({
+        layer: 'LAYER_1_SYSTEM_POLICY',
+        reason: 'Policy attempts forbidden cross-project authority over Logos / Lexi',
+        severity: 'CRITICAL',
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    return {
+      allowed: violations.length === 0,
+      violations,
+      safeToProceed: violations.length === 0
+    };
+  }
+
+  /**
+   * Layer 2: User Request Sanitization & Prompt Injection Shield
+   */
+  public sanitizeUserRequest(rawInput: string): ContainmentCheckResult {
+    const violations: ContainmentViolation[] = [];
+
+    for (const pattern of FORBIDDEN_INJECTION_PATTERNS) {
+      if (pattern.test(rawInput)) {
+        violations.push({
+          layer: 'LAYER_2_USER_REQUEST',
+          reason: `Hostile prompt injection pattern detected: ${pattern.source}`,
+          detectedPayload: rawInput.slice(0, 100),
+          severity: 'HIGH',
+          timestamp: new Date().toISOString()
+        });
+      }
+    }
+
+    // Strip out potential control characters while preserving Bengali Unicode
+    const sanitized = rawInput.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '').trim();
+
+    return {
+      allowed: violations.length === 0,
+      violations,
+      sanitizedInput: sanitized,
+      safeToProceed: violations.length === 0
+    };
+  }
+
+  /**
+   * Layer 3: Retrieved Evidence Verification (RAG Integrity)
+   * Enforces that Scripture evidence comes exclusively from validated canonical IRV data.
+   */
+  public verifyRetrievedEvidence(sourceType: string, isFromCanonicalDb: boolean): ContainmentCheckResult {
+    const violations: ContainmentViolation[] = [];
+
+    if (sourceType === 'SCRIPTURE' && !isFromCanonicalDb) {
+      violations.push({
+        layer: 'LAYER_3_RETRIEVED_EVIDENCE',
+        reason: 'Scripture text must originate exclusively from verified IRV canonical storage, never generated by LLM',
+        severity: 'CRITICAL',
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    return {
+      allowed: violations.length === 0,
+      violations,
+      safeToProceed: violations.length === 0
+    };
+  }
+
+  /**
+   * Layer 4: Proposed Action / Response Structure Validation
+   * Enforces the mandatory 5-part Ask Bible structure.
+   */
+  public validateProposedResponse(responseContent: string): ContainmentCheckResult {
+    const violations: ContainmentViolation[] = [];
+
+    // Check for divine persona claim
+    const lower = responseContent.toLowerCase();
+    if (
+      lower.includes('আমি ঈশ্বর') ||
+      lower.includes('আমি যীশু') ||
+      lower.includes('আমি পরমেশ্বর') ||
+      lower.includes('i am god') ||
+      lower.includes('i speak with divine authority')
+    ) {
+      violations.push({
+        layer: 'LAYER_4_PROPOSED_ACTION',
+        reason: 'Prohibited claim of divine persona or authority in AI response',
+        severity: 'CRITICAL',
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    return {
+      allowed: violations.length === 0,
+      violations,
+      safeToProceed: violations.length === 0
+    };
+  }
+
+  /**
+   * Layer 5: Executable Operation Boundary
+   * Strict barrier ensuring Deep can never perform destructive filesystem or database writes.
+   */
+  public verifyExecutableOperation(operationId: string, isDestructive: boolean): ContainmentCheckResult {
+    const violations: ContainmentViolation[] = [];
+
+    if (isDestructive) {
+      violations.push({
+        layer: 'LAYER_5_EXECUTABLE_OPERATION',
+        reason: `Deep is strictly prohibited from executing destructive operation '${operationId}' without Level 5 Owner explicit approval`,
+        severity: 'CRITICAL',
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    return {
+      allowed: violations.length === 0,
+      violations,
+      safeToProceed: violations.length === 0
+    };
+  }
+
+  /**
+   * Compromise Containment Handler (Fail-Closed)
+   * Triggered when hostile activity or boundary violation is detected.
+   */
+  public containCompromise(violation: ContainmentViolation): CompromiseContainmentStatus {
+    this.compromiseStatus.isCompromised = true;
+    this.compromiseStatus.isolationMode = violation.severity === 'CRITICAL' ? 'TOTAL_SHUTDOWN' : 'READ_ONLY_SAFE';
+    this.compromiseStatus.reason = violation.reason;
+    this.compromiseStatus.isolatedAt = new Date().toISOString();
+    this.compromiseStatus.auditTrail.push(violation);
+
+    console.warn(`[DEEP_CONTAINMENT] Containment engaged! Mode: ${this.compromiseStatus.isolationMode}. Reason: ${violation.reason}`);
+    return this.compromiseStatus;
+  }
+
+  public getStatus(): CompromiseContainmentStatus {
+    return { ...this.compromiseStatus };
+  }
+
+  public resetContainment(passcode: string): boolean {
+    if (passcode === 'ayanghosh75') {
+      this.compromiseStatus = {
+        isCompromised: false,
+        isolationMode: 'NORMAL',
+        auditTrail: []
+      };
+      return true;
+    }
+    return false;
+  }
+}
+
+export const deepAiContainmentService = DeepAiContainmentService.getInstance();

@@ -1,0 +1,6 @@
+name = "deep-daily-word-worker"
+main = "index.js"
+compatibility_date = "2024-09-01"
+
+[triggers]
+crons = ["0 * * * *"] # Run every hour across all global timezones

@@ -1,0 +1,64 @@
+# ============================================================================
+# BENGALI STUDY BIBLE — HARDENED GITIGNORE RULES (SECTION 2 SECURITY POLICY)
+# Strictly prevents committing secrets, keys, tokens, recovery codes,
+# private reports, local snapshots, or user data to any remote repository.
+# ============================================================================
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies & Build Outputs
+node_modules
+dist
+dist-ssr
+.cloud-monitor-dist
+*.local
+
+# Strictly Excluded Secrets, Keys, Tokens & Environment Files
+.private-keys
+.private-keys/
+*.secret
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+*credentials*
+*passcode*
+*recovery-code*
+.surge*
+
+# Local Snapshots, Backups & Verification Packages (Never push to remote git)
+.rollback-points/
+.last-known-good/
+.backups/
+.clean-restore-drill-env/
+.final-verification-package/
+.remediation-verification-package/
+.cloud-activation-evidence/
+*.zip
+data-raw/benirv_usfm.zip
+public/EMERGENCY_ACCESS_GUIDE.md
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operational reports and unpublished candidates
+.ops-reports/
+.release-candidates/

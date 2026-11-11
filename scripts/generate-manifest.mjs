@@ -1,0 +1,141 @@
+import fs from 'fs';
+
+const booksMeta = [
+  { id: 'GEN', nameBn: 'আদিপুস্তক', nameEn: 'Genesis', testament: 'OT', division: 'মোশির ব্যবস্থা (Law)', ch: 50 },
+  { id: 'EXO', nameBn: 'যাত্রাপুস্তক', nameEn: 'Exodus', testament: 'OT', division: 'মোশির ব্যবস্থা (Law)', ch: 40 },
+  { id: 'LEV', nameBn: 'লেবীয় পুস্তক', nameEn: 'Leviticus', testament: 'OT', division: 'মোশির ব্যবস্থা (Law)', ch: 27 },
+  { id: 'NUM', nameBn: 'গণনা পুস্তক', nameEn: 'Numbers', testament: 'OT', division: 'মোশির ব্যবস্থা (Law)', ch: 36 },
+  { id: 'DEU', nameBn: 'দ্বিতীয় বিবরণ', nameEn: 'Deuteronomy', testament: 'OT', division: 'মোশির ব্যবস্থা (Law)', ch: 34 },
+  { id: 'JOS', nameBn: 'যিহোশূয়', nameEn: 'Joshua', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 24 },
+  { id: 'JDG', nameBn: 'বিচারকর্তৃগণ', nameEn: 'Judges', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 21 },
+  { id: 'RUT', nameBn: 'রূথ', nameEn: 'Ruth', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 4 },
+  { id: '1SA', nameBn: '১ শমূয়েল', nameEn: '1 Samuel', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 31 },
+  { id: '2SA', nameBn: '২ শমূয়েল', nameEn: '2 Samuel', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 24 },
+  { id: '1KI', nameBn: '১ রাজাবলি', nameEn: '1 Kings', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 22 },
+  { id: '2KI', nameBn: '২ রাজাবলি', nameEn: '2 Kings', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 25 },
+  { id: '1CH', nameBn: '১ বংশাবলি', nameEn: '1 Chronicles', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 29 },
+  { id: '2CH', nameBn: '২ বংশাবলি', nameEn: '2 Chronicles', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 36 },
+  { id: 'EZR', nameBn: 'ইষ্রা', nameEn: 'Ezra', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 10 },
+  { id: 'NEH', nameBn: 'নহিমিয়', nameEn: 'Nehemiah', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 13 },
+  { id: 'EST', nameBn: 'ইষ্টের', nameEn: 'Esther', testament: 'OT', division: 'ঐতিহাসিক বিবরণ (History)', ch: 10 },
+  { id: 'JOB', nameBn: 'ইয়োব', nameEn: 'Job', testament: 'OT', division: 'কাব্য ও প্রজ্ঞা (Poetry & Wisdom)', ch: 42 },
+  { id: 'PSA', nameBn: 'গীতসংহিতা', nameEn: 'Psalms', testament: 'OT', division: 'কাব্য ও প্রজ্ঞা (Poetry & Wisdom)', ch: 150 },
+  { id: 'PRO', nameBn: 'হিতোপদেশ', nameEn: 'Proverbs', testament: 'OT', division: 'কাব্য ও প্রজ্ঞা (Poetry & Wisdom)', ch: 31 },
+  { id: 'ECC', nameBn: 'উপদেশক', nameEn: 'Ecclesiastes', testament: 'OT', division: 'কাব্য ও প্রজ্ঞা (Poetry & Wisdom)', ch: 12 },
+  { id: 'SNG', nameBn: 'পরমগীত', nameEn: 'Song of Solomon', testament: 'OT', division: 'কাব্য ও প্রজ্ঞা (Poetry & Wisdom)', ch: 8 },
+  { id: 'ISA', nameBn: 'যিশাইয়', nameEn: 'Isaiah', testament: 'OT', division: 'প্রধান ভাববাদী (Major Prophets)', ch: 66 },
+  { id: 'JER', nameBn: 'যিরমিয়', nameEn: 'Jeremiah', testament: 'OT', division: 'প্রধান ভাববাদী (Major Prophets)', ch: 52 },
+  { id: 'LAM', nameBn: 'বিলাপ', nameEn: 'Lamentations', testament: 'OT', division: 'প্রধান ভাববাদী (Major Prophets)', ch: 5 },
+  { id: 'EZK', nameBn: 'যিহিষ্কেল', nameEn: 'Ezekiel', testament: 'OT', division: 'প্রধান ভাববাদী (Major Prophets)', ch: 48 },
+  { id: 'DAN', nameBn: 'দানিয়েল', nameEn: 'Daniel', testament: 'OT', division: 'প্রধান ভাববাদী (Major Prophets)', ch: 12 },
+  { id: 'HOS', nameBn: 'হোশেয়', nameEn: 'Hosea', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 14 },
+  { id: 'JOL', nameBn: 'যোয়েল', nameEn: 'Joel', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 3 },
+  { id: 'AMO', nameBn: 'আমোষ', nameEn: 'Amos', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 9 },
+  { id: 'OBA', nameBn: 'ওবদিয়', nameEn: 'Obadiah', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 1 },
+  { id: 'JON', nameBn: 'যোনা', nameEn: 'Jonah', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 4 },
+  { id: 'MIC', nameBn: 'মীখা', nameEn: 'Micah', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 7 },
+  { id: 'NAM', nameBn: 'নহূম', nameEn: 'Nahum', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 3 },
+  { id: 'HAB', nameBn: 'হবক্কূক', nameEn: 'Habakkuk', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 3 },
+  { id: 'ZEP', nameBn: 'সফনিয়', nameEn: 'Zephaniah', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 3 },
+  { id: 'HAG', nameBn: 'হগয়', nameEn: 'Haggai', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 2 },
+  { id: 'ZEC', nameBn: 'সখরিয়', nameEn: 'Zechariah', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 14 },
+  { id: 'MAL', nameBn: 'মালাখি', nameEn: 'Malachi', testament: 'OT', division: 'অপ্রধান ভাববাদী (Minor Prophets)', ch: 4 },
+  { id: 'MAT', nameBn: 'মথি', nameEn: 'Matthew', testament: 'NT', division: 'সুসমাচার (Gospels)', ch: 28 },
+  { id: 'MRK', nameBn: 'মার্ক', nameEn: 'Mark', testament: 'NT', division: 'সুসমাচার (Gospels)', ch: 16 },
+  { id: 'LUK', nameBn: 'লূক', nameEn: 'Luke', testament: 'NT', division: 'সুসমাচার (Gospels)', ch: 24 },
+  { id: 'JHN', nameBn: 'যোহন', nameEn: 'John', testament: 'NT', division: 'সুসমাচার (Gospels)', ch: 21 },
+  { id: 'ACT', nameBn: 'প্রেরিতদের কার্য', nameEn: 'Acts', testament: 'NT', division: 'প্রেরিতদের কাজ (Acts)', ch: 28 },
+  { id: 'ROM', nameBn: 'রোমীয়', nameEn: 'Romans', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 16 },
+  { id: '1CO', nameBn: '১ করিন্থীয়', nameEn: '1 Corinthians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 16 },
+  { id: '2CO', nameBn: '২ করিন্থীয়', nameEn: '2 Corinthians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 13 },
+  { id: 'GAL', nameBn: 'গালাতীয়', nameEn: 'Galatians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 6 },
+  { id: 'EPH', nameBn: 'ইফিষীয়', nameEn: 'Ephesians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 6 },
+  { id: 'PHP', nameBn: 'ফিলিপীয়', nameEn: 'Philippians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 4 },
+  { id: 'COL', nameBn: 'কলসীয়', nameEn: 'Colossians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 4 },
+  { id: '1TH', nameBn: '১ থিষলনীকীয়', nameEn: '1 Thessalonians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 5 },
+  { id: '2TH', nameBn: '২ থিষলনীকীয়', nameEn: '2 Thessalonians', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 3 },
+  { id: '1TI', nameBn: '১ তীমথিয়', nameEn: '1 Timothy', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 6 },
+  { id: '2TI', nameBn: '২ তীমথিয়', nameEn: '2 Timothy', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 4 },
+  { id: 'TIT', nameBn: 'তীত', nameEn: 'Titus', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 3 },
+  { id: 'PHM', nameBn: 'ফিলীমন', nameEn: 'Philemon', testament: 'NT', division: 'পৌলের পত্রাবলী (Pauline Epistles)', ch: 1 },
+  { id: 'HEB', nameBn: 'ইব্রীয়', nameEn: 'Hebrews', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 13 },
+  { id: 'JAS', nameBn: 'যাকোব', nameEn: 'James', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 5 },
+  { id: '1PE', nameBn: '১ পিতর', nameEn: '1 Peter', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 5 },
+  { id: '2PE', nameBn: '২ পিতর', nameEn: '2 Peter', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 3 },
+  { id: '1JN', nameBn: '১ যোহন', nameEn: '1 John', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 5 },
+  { id: '2JN', nameBn: '২ যোহন', nameEn: '2 John', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 1 },
+  { id: '3JN', nameBn: '৩ যোহন', nameEn: '3 John', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 1 },
+  { id: 'JUD', nameBn: 'যিহূদা', nameEn: 'Jude', testament: 'NT', division: 'সাধারণ পত্রাবলী (General Epistles)', ch: 1 },
+  { id: 'REV', nameBn: 'প্রকাশিত বাক্য', nameEn: 'Revelation', testament: 'NT', division: 'প্রকাশিত বাক্য (Apocalyptic)', ch: 22 }
+];
+
+const manifest = booksMeta.map((b, idx) => {
+  const jsonPath = './public/bible-data/irv/' + b.id + '.json';
+  const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  const chapterVerses = [];
+  let totalVerses = 0;
+  for (let c = 1; c <= b.ch; c++) {
+    const count = data.chapters[c.toString()] ? data.chapters[c.toString()].length : 0;
+    chapterVerses.push(count);
+    totalVerses += count;
+  }
+  return {
+    order: idx + 1,
+    id: b.id,
+    nameBn: b.nameBn,
+    nameEn: b.nameEn,
+    testament: b.testament,
+    division: b.division,
+    chaptersCount: b.ch,
+    totalVerses: totalVerses,
+    chapterVerses: chapterVerses,
+    translationId: 'irv-ben',
+    license: 'Creative Commons CC-BY-SA 4.0',
+    source: 'Bridge Connectivity Solutions Pvt. Ltd.'
+  };
+});
+
+const fileLines = [
+  '// ============================================================',
+  '// BENGALI STUDY BIBLE (বাংলা স্টাডি বাইবেল)',
+  '// Authoritative 66-Book Bible Structure Manifest',
+  '// Complete Protestant Biblical Canon (39 OT, 27 NT)',
+  '// Translation: Indian Revised Version (IRV) Bengali (CC BY-SA 4.0)',
+  '// Total Chapters: 1,189 | Total Verses: 31,088',
+  '// ============================================================',
+  '',
+  'export interface ManifestBook {',
+  '  order: number;',
+  '  id: string;',
+  '  nameBn: string;',
+  '  nameEn: string;',
+  "  testament: 'OT' | 'NT';",
+  '  division: string;',
+  '  chaptersCount: number;',
+  '  totalVerses: number;',
+  '  chapterVerses: number[];',
+  '  translationId: string;',
+  '  license: string;',
+  '  source: string;',
+  '}',
+  '',
+  'export const AUTHORITATIVE_BIBLE_MANIFEST: ManifestBook[] = ' + JSON.stringify(manifest, null, 2) + ';',
+  '',
+  'export const TOTAL_CANONICAL_BOOKS = 66;',
+  'export const TOTAL_CANONICAL_CHAPTERS = 1189;',
+  'export const TOTAL_CANONICAL_VERSES_IRV = 31088;',
+  '',
+  'export function getManifestBook(bookId: string): ManifestBook | undefined {',
+  '  return AUTHORITATIVE_BIBLE_MANIFEST.find(b => b.id.toUpperCase() === bookId.toUpperCase());',
+  '}',
+  '',
+  'export function getExpectedVerses(bookId: string, chapter: number): number {',
+  '  const book = getManifestBook(bookId);',
+  '  if (!book || chapter < 1 || chapter > book.chaptersCount) return 0;',
+  '  return book.chapterVerses[chapter - 1] || 0;',
+  '}',
+  ''
+];
+
+fs.writeFileSync('./src/data/authoritativeBibleManifest.ts', fileLines.join('\n'));
+console.log('Successfully written src/data/authoritativeBibleManifest.ts');

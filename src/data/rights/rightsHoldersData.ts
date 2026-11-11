@@ -1,0 +1,160 @@
+// ============================================================
+// BENGALI STUDY BIBLE (বাংলা স্টাডি বাইবেল)
+// RIGHTS HOLDERS REGISTRY
+// Project Owner & Developer: Rev. Ayan Kumar Ghosh
+// Official Contact: ayanghosh75@gmail.com
+// ============================================================
+
+import { RightsHolder } from '../../types/rights';
+
+export const RIGHTS_HOLDERS: RightsHolder[] = [
+  {
+    id: 'rh-ayan-ghosh',
+    nameBn: 'রেভা. অয়ন কুমার ঘোষ',
+    nameEn: 'Rev. Ayan Kumar Ghosh',
+    organizationName: 'বাংলা স্টাডি বাইবেল (Bengali Study Bible)',
+    rightsHolderType: 'Project Owner',
+    officialWebsite: 'https://bengalistudybible.org',
+    publicContact: 'ayanghosh75@gmail.com',
+    isProjectOwner: true,
+    notes: 'প্ল্যাটফর্মের প্রতিষ্ঠাতা, নকশাকার ও সফটওয়্যার প্রস্তুতকারক। মূল প্ল্যাটফর্ম কোড, গবেষণা সহায়িকা, স্টাডি নোট কাঠামো এবং সম্পাদকীয় পাঠ্যের স্বত্বাধিকারী।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-bridge-connectivity',
+    nameBn: 'ব্রিজ কানেক্টিভিটি সলিউশনস প্রা. লি.',
+    nameEn: 'Bridge Connectivity Solutions Pvt. Ltd.',
+    organizationName: 'Bridge Connectivity Solutions Pvt. Ltd.',
+    rightsHolderType: 'Publisher',
+    officialWebsite: 'https://bridgeconn.com',
+    publicContact: 'info@bridgeconn.com',
+    isProjectOwner: false,
+    notes: 'ভারতীয় সংশোধিত সংস্করণ (IRV) বাংলা বাইবেলের স্বত্বাধিকারী ও প্রকাশক। ক্রিয়েটিভ কমন্স CC BY-SA 4.0 লাইসেন্সধারী।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-bsi',
+    nameBn: 'বাইবেল সোসাইটি অফ ইন্ডিয়া (BSI)',
+    nameEn: 'The Bible Society of India (BSI)',
+    organizationName: 'The Bible Society of India',
+    rightsHolderType: 'Bible Society',
+    officialWebsite: 'https://bsi.org.in',
+    publicContact: 'bsi@bsi.org.in',
+    isProjectOwner: false,
+    notes: 'বাংলা পবিত্র বাইবেল (BSI O.V.) সংস্করণের স্বত্বাধিকারী। বাণিজ্যিক বা উন্মুক্ত অ্যাপে সম্পূর্ণ টেক্সট পুনঃবিতরণের জন্য আনুষ্ঠানিক অনুমতি আবশ্যক। বর্তমানে পূর্ণ টেক্সট আমদানি স্থগিত।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-serampore-carey',
+    nameBn: 'উইলিয়াম কেরি ও শ্রীরামপুর মিশন',
+    nameEn: 'William Carey & Serampore Mission',
+    organizationName: 'Serampore Mission Press (1809)',
+    rightsHolderType: 'Translator',
+    officialWebsite: 'https://seramporecollege.ac.in',
+    isProjectOwner: false,
+    notes: 'ঐতিহাসিক ১৮০৯/১৮৩২ বাংলা বাইবেলের অনুবাদক ও মুদ্রক। প্রকাশনার ১০০ বছরের অধিক কাল অতিক্রান্ত হওয়ায় বিশ্বব্যাপী সর্বজনীন মালিকানা (Public Domain)।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-rainbow-missions',
+    nameBn: 'রেইনবো মিশনস, ইনক.',
+    nameEn: 'Rainbow Missions, Inc.',
+    organizationName: 'Rainbow Missions, Inc.',
+    rightsHolderType: 'Publisher',
+    officialWebsite: 'https://worldenglish.bible',
+    publicContact: 'https://worldenglish.bible/contact/',
+    isProjectOwner: false,
+    notes: 'ওয়ার্ল্ড ইংলিশ বাইবেল (WEB) প্রকাশক। ১০০% পাবলিক ডোমেইন (Public Domain) হিসেবে উৎসর্গীকৃত।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-crossway',
+    nameBn: 'ক্রসওয়ে পাবলিশার্স',
+    nameEn: 'Crossway / Good News Publishers',
+    organizationName: 'Crossway, a publishing ministry of Good News Publishers',
+    rightsHolderType: 'Publisher',
+    officialWebsite: 'https://www.crossway.org',
+    publicContact: 'permissions@crossway.org',
+    isProjectOwner: false,
+    notes: 'ইংলিশ স্ট্যান্ডার্ড ভার্সন (ESV) স্বত্বাধিকারী। সীমিত প্রকাশনা নীতিমালার অধীনে অ-বাণিজ্যিক শাস্ত্রাংশ উদ্ধৃতি অনুমোদিত।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-sil-international',
+    nameBn: 'এসআইএল ইন্টারন্যাশনাল',
+    nameEn: 'SIL International',
+    organizationName: 'SIL International',
+    rightsHolderType: 'Organization',
+    officialWebsite: 'https://software.sil.org',
+    isProjectOwner: false,
+    notes: 'নোটো সান্স বাংলা (Noto Sans Bengali) ফন্টের মূল টাইপোগ্রাফিক রূপকার ও SIL Open Font License 1.1 এর স্বত্বাধিকারী।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-lucide-icons',
+    nameBn: 'লুসিড প্রজেক্ট',
+    nameEn: 'Lucide Project Contributors',
+    organizationName: 'Lucide Icons',
+    rightsHolderType: 'Organization',
+    officialWebsite: 'https://lucide.dev',
+    isProjectOwner: false,
+    notes: 'লুসিড আইকন লাইব্রেরির প্রস্তুতকারকবৃন্দ। ISC লাইসেন্সের অধীনে অনুমোদিত।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-matthew-henry',
+    nameBn: 'ম্যাথু হেনরি এস্টেট (পাবলিক ডোমেইন)',
+    nameEn: 'Matthew Henry (Public Domain)',
+    rightsHolderType: 'Author',
+    isProjectOwner: false,
+    notes: 'ম্যাথু হেনরি কমেন্টারি অন দ্য হোল বাইবেল (১৭০৬-১৭১৪)। সর্বজনীন ঐতিহাসিক সম্পদ (Public Domain)।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-james-strong',
+    nameBn: 'ড. জেমস স্ট্রং (পাবলিক ডোমেইন)',
+    nameEn: 'Dr. James Strong (Public Domain)',
+    rightsHolderType: 'Author',
+    isProjectOwner: false,
+    notes: 'স্ট্রংস এক্সহস্টিভ কঙ্কর্ডেন্স ও হিব্রু-গ্রিক লেক্সিকন (১৮৯০)। সর্বজনীন ঐতিহাসিক ঐতিহ্য (Public Domain)।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-tsk-crossref',
+    nameBn: 'ট্রেজারি অফ স্ক্রিপচার নলেজ (টিএসকে)',
+    nameEn: 'Treasury of Scripture Knowledge (TSK)',
+    rightsHolderType: 'Author',
+    isProjectOwner: false,
+    notes: '১৮৩৬ সালে স্যামুয়েল ব্যাগস্টার প্রকাশিত ক্লাসিক ক্রস-রেফারেন্স ডেটাসেট। পাবলিক ডোমেইন।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+  {
+    id: 'rh-mit-opensource',
+    nameBn: 'ওপেন সোর্স সফটওয়্যার কমিউনিটি',
+    nameEn: 'Open Source Software Contributors',
+    rightsHolderType: 'Developer',
+    isProjectOwner: false,
+    notes: 'React, Vite, Tailwind CSS ইত্যাদি সফটওয়্যার ফ্রেমওয়ার্কের ডেভেলপারবৃন্দ। MIT লাইসেন্সযুক্ত।',
+    createdAt: '2026-01-01T00:00:00Z',
+    updatedAt: '2026-09-17T00:00:00Z',
+  },
+];
+
+export function getRightsHolderById(id: string): RightsHolder | undefined {
+  return RIGHTS_HOLDERS.find((rh) => rh.id === id);
+}
+
+export function getProjectOwner(): RightsHolder {
+  return RIGHTS_HOLDERS.find((rh) => rh.isProjectOwner) || RIGHTS_HOLDERS[0];
+}

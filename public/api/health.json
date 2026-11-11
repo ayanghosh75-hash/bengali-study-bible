@@ -1,0 +1,11 @@
+{
+  "status": "STATIC_SNAPSHOT_BUILD_TIME",
+  "monitoring24x7Status": "NOT YET ACTIVE",
+  "freshnessWindowMinutes": 15,
+  "timestamp": "2026-09-26T05:06:09.322Z",
+  "expiresAt": "2026-09-26T05:21:09.322Z",
+  "service": "bengali-study-bible-public-edge",
+  "canon66Ready": true,
+  "pwaReady": true,
+  "heartbeatRef": "/api/deep-heartbeat.json"
+}
